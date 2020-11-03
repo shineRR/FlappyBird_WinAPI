@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp
+Scene.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+direct.h
+-
+string
+-
+gdiplus.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/gdiplus.h
+windows.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/windows.h
+iostream
+-
+
