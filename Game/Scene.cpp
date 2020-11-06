@@ -3,8 +3,14 @@
 //
 
 #include "Scene.h"
+#include "gdiplus.h"
+#include "GameState.h"
 
-void Scene::Start(HWND hWnd) {
+Scene::Scene(GameState* _state) {
+    state = _state;
+}
+
+void Scene::Render(HWND hWnd) {
     std::string assetDir = GetAssetsDir();
     RECT windowRect;
     if(!GetClientRect(hWnd, &windowRect))
@@ -24,10 +30,15 @@ void Scene::Start(HWND hWnd) {
     HBITMAP  oldbmp = (HBITMAP)SelectObject(memDC, hBM);
 
     Gdiplus::Graphics graphics(memDC);
-
-    DrawBackground(memDC, windowRect);
-    DrawFloor(memDC, windowRect);
-    DrawStartMenu(memDC, windowRect);
+    if (state->GetState() == INTRO) {
+        DrawBackground(memDC, windowRect);
+        DrawFloor(memDC, windowRect);
+        DrawStartMenu(memDC, windowRect);
+    } else {
+        DrawBackground(memDC, windowRect);
+        DrawFloor(memDC, windowRect);
+//        DrawStartMenu(memDC, windowRect);
+    }
 
     BitBlt(hdc, left, top, width, height, memDC, left, top, SRCCOPY);
     SelectObject(memDC, oldbmp);
@@ -82,4 +93,6 @@ std::string Scene::GetAssetsDir() {
     std::string assetDir = currDir.substr(0, pos).append("\\Assets\\");     // get from "live" to the end
     return assetDir;
 }
+
+Scene::Scene() {}
 

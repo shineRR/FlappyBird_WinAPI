@@ -58,10 +58,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -78,7 +78,7 @@ CMAKE_BINARY_DIR = C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debu
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -89,7 +89,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -196,6 +196,33 @@ Game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.s
 .PHONY : Game/Game.cpp.s
 
+Game/GameState.obj: Game/GameState.cpp.obj
+
+.PHONY : Game/GameState.obj
+
+# target to build an object file
+Game/GameState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj
+.PHONY : Game/GameState.cpp.obj
+
+Game/GameState.i: Game/GameState.cpp.i
+
+.PHONY : Game/GameState.i
+
+# target to preprocess a source file
+Game/GameState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.i
+.PHONY : Game/GameState.cpp.i
+
+Game/GameState.s: Game/GameState.cpp.s
+
+.PHONY : Game/GameState.s
+
+# target to generate assembly for a file
+Game/GameState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.s
+.PHONY : Game/GameState.cpp.s
+
 Game/Scene.obj: Game/Scene.cpp.obj
 
 .PHONY : Game/Scene.obj
@@ -265,6 +292,9 @@ help:
 	@echo ... Game/Game.obj
 	@echo ... Game/Game.i
 	@echo ... Game/Game.s
+	@echo ... Game/GameState.obj
+	@echo ... Game/GameState.i
+	@echo ... Game/GameState.s
 	@echo ... Game/Scene.obj
 	@echo ... Game/Scene.i
 	@echo ... Game/Scene.s

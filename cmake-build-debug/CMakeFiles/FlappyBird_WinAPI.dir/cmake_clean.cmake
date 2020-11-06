@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj"
   "CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj"
+  "CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj"
   "CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj"
   "CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj"
   "FlappyBird_WinAPI.exe"

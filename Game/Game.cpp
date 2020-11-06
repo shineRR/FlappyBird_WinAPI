@@ -4,8 +4,18 @@
 
 #include "Game.h"
 
-void Game::Run(HWND hWnd) {
-    Scene::Start(hWnd);
+void Game::KeyAnalyse(HWND hWnd, WPARAM wParam) {
+    switch(wParam) {
+        case VK_SHIFT: {
+            gameState.ChangeToGameLevel();
+            break;
+        }
+    }
+    scene.Render(hWnd);
+}
+
+void Game::Run(HWND hWnd, WPARAM wParam) {
+    scene.Render(hWnd);
 }
 
 void Game::Quit() {

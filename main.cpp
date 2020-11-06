@@ -1,8 +1,11 @@
 #include <iostream>
 #include "windows.h"
+#include "gdiplus.h"
 #include "Game/Game.h"
 
 const SIZE MIN_WINDOW_SIZE = {150,200};
+//GameState gameState = GameState(INTRO);
+Game game = Game();
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -14,8 +17,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             lpMMI->ptMinTrackSize.y = MIN_WINDOW_SIZE.cy;
             break;
         }
+        case WM_KEYDOWN: {
+            game.KeyAnalyse(hWnd, wParam);
+            break;
+        }
         case WM_PAINT: {
-            Game::Run(hWnd);
+            game.Run(hWnd, wParam);
             break;
         }
         case WM_DESTROY:

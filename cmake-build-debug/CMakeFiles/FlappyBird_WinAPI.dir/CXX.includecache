@@ -6,19 +6,25 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
+
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp
 Scene.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
-
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
-direct.h
--
-string
--
 gdiplus.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/gdiplus.h
+GameState.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+string
+-
+dirent.h
+-
 windows.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/windows.h
+GameState.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
 iostream
 -
 

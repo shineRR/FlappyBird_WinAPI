@@ -6,12 +6,18 @@ CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: ../Bird/Bird.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Game.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Game.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/GameState.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Scene.h
 
+CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj: ../Game/GameState.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj: ../Game/GameState.h
+
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/GameState.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Game.h
+CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/GameState.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Scene.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../main.cpp
 

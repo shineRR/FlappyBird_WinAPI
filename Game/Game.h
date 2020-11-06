@@ -6,13 +6,20 @@
 #define FLAPPYBIRD_WINAPI_GAME_H
 
 #include "algorithm"
-#include "gdiplus.h"
 #include "Scene.h"
+#include "GameState.h"
 
 class Game {
+    private:
+
     public:
-        static void Run(HWND hWnd);
-        static void Quit();
+        Game() = default;
+        GameState gameState = GameState(INTRO);
+        Scene scene = Scene(&gameState);
+
+        void KeyAnalyse(HWND hWnd, WPARAM wParam);
+        void Run(HWND hWnd, WPARAM wParam);
+        void Quit();
 };
 
 
