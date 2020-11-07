@@ -6,9 +6,10 @@
 #include "gdiplus.h"
 #include "GameState.h"
 
-Scene::Scene(GameState* _state, Bird* _bird) {
+Scene::Scene(GameState* _state, Bird* _bird, HWND* hWnd) {
     state = _state;
     bird = _bird;
+//    pipe.GeneratePipes(hWnd);
 }
 
 void Scene::Render(HWND hWnd) {
@@ -38,6 +39,7 @@ void Scene::Render(HWND hWnd) {
         DrawBackground(memDC, windowRect);
         DrawFloor(memDC, windowRect);
         bird->DrawBird(memDC);
+        pipe.DrawPipes(memDC);
 //        DrawStartMenu(memDC, windowRect);
     }
 
@@ -82,7 +84,7 @@ void Scene::DrawBackground(HDC &memDC, RECT windowRect) {
 
     Gdiplus::Graphics graphics(memDC);
     Gdiplus::Rect destRect(0, 0, width, height);
-    Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-day.png");
+    Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
     graphics.DrawImage(&image, destRect);
 }
 

@@ -4,9 +4,7 @@
 
 #include "Game.h"
 
-void Game::KeyAnalyse(HWND hWnd, WPARAM wParam) {
-    RECT windowRect;
-    GetClientRect(hWnd, &windowRect);
+void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
     switch(wParam) {
         case VK_SHIFT: {
             gameState.ChangeToGameLevel();
@@ -25,10 +23,10 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam) {
             break;
         }
     }
-    scene.Render(hWnd);
+//    scene.Render(hWnd);
 }
 
-void Game::Run(HWND hWnd, WPARAM wParam) {
+void Game::Run(HWND hWnd) {
     RECT windowRect;
     GetClientRect(hWnd, &windowRect);
     int width = (windowRect.right - windowRect.left);

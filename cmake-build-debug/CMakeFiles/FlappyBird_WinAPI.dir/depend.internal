@@ -10,6 +10,7 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.cpp
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
@@ -18,6 +19,7 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
@@ -26,4 +28,5 @@ CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
  C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/main.cpp

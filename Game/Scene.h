@@ -11,12 +11,14 @@
 #include "windows.h"
 #include "GameState.h"
 #include "../Bird/Bird.h"
+#include "../Pipe/Pipe.h"
 #include <iostream>
 
 class Scene {
     public:
-        explicit Scene(GameState* _state, Bird* _bird);
+        explicit Scene(GameState* _state, Bird* _bird, HWND* hWnd);
         Scene();
+        Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
         void Render(HWND hWnd);
     private:
         GameState* state;

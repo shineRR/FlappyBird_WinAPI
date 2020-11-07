@@ -3,31 +3,55 @@
 #include "gdiplus.h"
 #include "Game/Game.h"
 
-const SIZE MIN_WINDOW_SIZE = {150,200};
-//GameState gameState = GameState(INTRO);
+#define TIMER_SECOND 1
+
+const SIZE MIN_WINDOW_SIZE = {640,480};
+const double FPS = 1000 / 60;
 Game game = Game();
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     PAINTSTRUCT ps;
+    RECT windowRect;
+    GetClientRect(hWnd, &windowRect);
     switch (message) {
+        case WM_CREATE: {
+            game.hWnd = hWnd;
+            SetTimer(hWnd, TIMER_SECOND, FPS, NULL);
+            break;
+        }
+        case WM_SIZE: {
+            double width = (windowRect.right - windowRect.left);
+            double height = (windowRect.bottom - windowRect.top);
+            game.bird.UpdateMoveDistance(width, height);
+            game.scene.pipe.GetCoefs(windowRect);
+            game.scene.pipe.updatePipesPosition(windowRect);
+            game.scene.Render(hWnd);
+            break;
+        }
+        case WM_TIMER: {
+            game.scene.pipe.Movement();
+            game.scene.Render(hWnd);
+            break;
+        }
         case WM_GETMINMAXINFO: {
-            RECT windowRect;
-            GetClientRect(hWnd, &windowRect);
             LPMINMAXINFO lpMMI = (LPMINMAXINFO) lParam;
             lpMMI->ptMinTrackSize.x = MIN_WINDOW_SIZE.cx;
             lpMMI->ptMinTrackSize.y = MIN_WINDOW_SIZE.cy;
             double width = (windowRect.right - windowRect.left);
             double height = (windowRect.bottom - windowRect.top);
             game.bird.UpdateMoveDistance(width, height);
+            game.scene.pipe.GetCoefs(windowRect);
+            game.scene.pipe.updatePipesPosition(windowRect);
+            game.scene.Render(hWnd);
             break;
         }
         case WM_KEYDOWN: {
-            game.KeyAnalyse(hWnd, wParam);
+            game.KeyAnalyse(hWnd, wParam, windowRect);
             break;
         }
         case WM_PAINT: {
-            game.Run(hWnd, wParam);
+           // game.Run(hWnd, wParam);
             break;
         }
         case WM_DESTROY:
@@ -60,9 +84,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
     RegisterClassEx(&wcex);
     hWnd = CreateWindow("Main", "Flappy Bird;",
                         WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
-                        CW_USEDEFAULT, 640, 480, nullptr, nullptr, hInstance, nullptr);
+                        CW_USEDEFAULT, 800, 600, nullptr, nullptr, hInstance, nullptr);
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
+    game.Run(hWnd);
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         TranslateMessage(&msg);

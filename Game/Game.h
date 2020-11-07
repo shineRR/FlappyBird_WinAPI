@@ -14,15 +14,15 @@ class Game {
         const int downModifier = 1;
         const int upModifier = -1;
         int money = 0;
-
     public:
         Game() = default;
+        HWND hWnd;
         GameState gameState = GameState(INTRO);
         Bird bird = Bird(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\redbird-midflap.png");
-        Scene scene = Scene(&gameState, &bird);
+        Scene scene = Scene(&gameState, &bird, &hWnd);
 
-        void KeyAnalyse(HWND hWnd, WPARAM wParam);
-        void Run(HWND hWnd, WPARAM wParam);
+        void KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect);
+        void Run(HWND hWnd);
         void Quit();
 };
 

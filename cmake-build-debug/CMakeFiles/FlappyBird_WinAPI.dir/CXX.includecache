@@ -6,17 +6,19 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/Bird.cpp
-Bird.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/Bird.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp
+Pipe.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/Bird.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 windows.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/windows.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/windows.h
 iostream
 -
 gdiplus.h
 -
 cwchar
+-
+cstring
 -
 

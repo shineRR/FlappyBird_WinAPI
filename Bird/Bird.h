@@ -5,8 +5,8 @@
 #ifndef FLAPPYBIRD_WINAPI_BIRD_H
 #define FLAPPYBIRD_WINAPI_BIRD_H
 
-#define DEFAULT_WINDOW_WIDTH 640
-#define DEFAULT_WINDOW_HEIGHT 480
+#define DEFAULT_WINDOW_WIDTH 800
+#define DEFAULT_WINDOW_HEIGHT 600
 
 #include "windows.h"
 #include <iostream>
@@ -27,9 +27,7 @@ class Bird {
         void DrawBird(HDC &memDC);
         void UpdateXY(int _x, int _y);
         void MoveVertical(RECT windowRect, int multiplierDirection);
-        void UpdateMoveDistance(int windowWidth, int windowHeight);
-
-    void UpdateMoveDistance(double windowWidth, double windowHeight);
+        void UpdateMoveDistance(double windowWidth, double windowHeight);
 };
 
 
