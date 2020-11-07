@@ -12,9 +12,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     PAINTSTRUCT ps;
     switch (message) {
         case WM_GETMINMAXINFO: {
+            RECT windowRect;
+            GetClientRect(hWnd, &windowRect);
             LPMINMAXINFO lpMMI = (LPMINMAXINFO) lParam;
             lpMMI->ptMinTrackSize.x = MIN_WINDOW_SIZE.cx;
             lpMMI->ptMinTrackSize.y = MIN_WINDOW_SIZE.cy;
+            double width = (windowRect.right - windowRect.left);
+            double height = (windowRect.bottom - windowRect.top);
+            game.bird.UpdateMoveDistance(width, height);
             break;
         }
         case WM_KEYDOWN: {

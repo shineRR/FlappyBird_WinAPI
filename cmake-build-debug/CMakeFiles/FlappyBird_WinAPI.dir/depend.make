@@ -18,6 +18,9 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/GameState.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.h
 
+CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj: ../Pipe/Pipe.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj: ../Pipe/Pipe.h
+
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Bird/Bird.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Game.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/GameState.h

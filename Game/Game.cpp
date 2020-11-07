@@ -31,8 +31,10 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam) {
 void Game::Run(HWND hWnd, WPARAM wParam) {
     RECT windowRect;
     GetClientRect(hWnd, &windowRect);
-    int _x = (windowRect.right - windowRect.left) / 2 - 40;
-    int _y = (windowRect.bottom - windowRect.top) / 2;
+    int width = (windowRect.right - windowRect.left);
+    int height = (windowRect.bottom - windowRect.top);
+    int _x = width / 2 - 40;
+    int _y = height / 2;
     bird.UpdateXY(_x, _y);
     scene.Render(hWnd);
 }

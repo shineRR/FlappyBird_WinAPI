@@ -35,3 +35,10 @@ void Bird::MoveVertical(RECT windowRect, int multiplierDirection) {
     windowRect.bottom -= birdHeight;
     ValidatePosition(windowRect, multiplierDirection);
 }
+
+void Bird::UpdateMoveDistance(double windowWidth, double windowHeight) {
+    int distance = 10;
+    double coefX = windowHeight / DEFAULT_WINDOW_HEIGHT;
+    distance *= coefX;
+    moveDistance = distance;
+}
