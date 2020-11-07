@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.cpp" "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj"
   "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.cpp" "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj"
   "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp" "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj"
+  "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp" "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj"
   "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/main.cpp" "C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

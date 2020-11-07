@@ -11,11 +11,15 @@
 
 class Game {
     private:
+        const int downModifier = 1;
+        const int upModifier = -1;
+        int money = 0;
 
     public:
         Game() = default;
         GameState gameState = GameState(INTRO);
-        Scene scene = Scene(&gameState);
+        Bird bird = Bird(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\redbird-midflap.png");
+        Scene scene = Scene(&gameState, &bird);
 
         void KeyAnalyse(HWND hWnd, WPARAM wParam);
         void Run(HWND hWnd, WPARAM wParam);

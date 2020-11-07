@@ -18,9 +18,9 @@ class GameState {
         GameState();
         explicit GameState(States _state);
         States GetState();
+        void ChangeToIntro();
         void ChangeToGameLevel();
         void ChangeToScore();
-
 };
 
 

@@ -21,4 +21,8 @@ void GameState::ChangeToScore() {
     state = SCORE;
 }
 
+void GameState::ChangeToIntro() {
+    state = INTRO;
+}
+
 GameState::GameState() = default;

@@ -10,15 +10,17 @@
 #include <dirent.h>
 #include "windows.h"
 #include "GameState.h"
+#include "../Bird/Bird.h"
 #include <iostream>
 
 class Scene {
     public:
-        explicit Scene(GameState* _state);
+        explicit Scene(GameState* _state, Bird* _bird);
         Scene();
         void Render(HWND hWnd);
     private:
         GameState* state;
+        Bird* bird;
         static std::string GetAssetsDir();
         void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);

@@ -6,8 +6,9 @@
 #include "gdiplus.h"
 #include "GameState.h"
 
-Scene::Scene(GameState* _state) {
+Scene::Scene(GameState* _state, Bird* _bird) {
     state = _state;
+    bird = _bird;
 }
 
 void Scene::Render(HWND hWnd) {
@@ -25,7 +26,6 @@ void Scene::Render(HWND hWnd) {
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(hWnd, &ps);
     HDC memDC = CreateCompatibleDC(hdc);
-
     HBITMAP hBM = CreateCompatibleBitmap(hdc, width, height);
     HBITMAP  oldbmp = (HBITMAP)SelectObject(memDC, hBM);
 
@@ -37,6 +37,7 @@ void Scene::Render(HWND hWnd) {
     } else {
         DrawBackground(memDC, windowRect);
         DrawFloor(memDC, windowRect);
+        bird->DrawBird(memDC);
 //        DrawStartMenu(memDC, windowRect);
     }
 
