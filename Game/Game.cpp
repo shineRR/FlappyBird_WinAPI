@@ -7,6 +7,7 @@
 void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
     switch(wParam) {
         case VK_SHIFT: {
+            scene.isActive = !scene.isActive;
             gameState.ChangeToGameLevel();
             break;
         }
@@ -19,6 +20,7 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             break;
         }
         case VK_ESCAPE: {
+            scene.isActive = !scene.isActive;
             gameState.ChangeToIntro();
             break;
         }

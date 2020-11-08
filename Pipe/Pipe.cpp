@@ -52,6 +52,7 @@ void Pipe::GetCoefs(RECT rect) {
 }
 
 void Pipe::updatePipesPosition(RECT rect) {
+    std::cout << "updatePipesPosition" << std::endl;
     double width = rect.right - rect.left;
     double height = rect.bottom - rect.top;
 //    double coefX = width / DEFAULT_WINDOW_WIDTH;

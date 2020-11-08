@@ -4,6 +4,7 @@
 #include "Game/Game.h"
 
 #define TIMER_SECOND 1
+#define BIRD_TIMER 2
 
 const SIZE MIN_WINDOW_SIZE = {640,480};
 const double FPS = 1000 / 60;
@@ -18,20 +19,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_CREATE: {
             game.hWnd = hWnd;
             SetTimer(hWnd, TIMER_SECOND, FPS, NULL);
+            SetTimer(hWnd, BIRD_TIMER, 400, NULL);
             break;
         }
         case WM_SIZE: {
             double width = (windowRect.right - windowRect.left);
             double height = (windowRect.bottom - windowRect.top);
             game.bird.UpdateMoveDistance(width, height);
-            game.scene.pipe.GetCoefs(windowRect);
-            game.scene.pipe.updatePipesPosition(windowRect);
+            game.scene.UpdatePipePosition(windowRect);
             game.scene.Render(hWnd);
             break;
         }
         case WM_TIMER: {
-            game.scene.pipe.Movement();
-            game.scene.Render(hWnd);
+            switch (wParam) {
+                case TIMER_SECOND: {
+                    game.scene.MovePipe();
+                    game.scene.Render(hWnd);
+                    break;
+                }
+                case BIRD_TIMER: {
+                    game.bird.MoveVertical(windowRect, 1);
+                    break;
+                }
+            }
             break;
         }
         case WM_GETMINMAXINFO: {
@@ -41,8 +51,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             double width = (windowRect.right - windowRect.left);
             double height = (windowRect.bottom - windowRect.top);
             game.bird.UpdateMoveDistance(width, height);
-            game.scene.pipe.GetCoefs(windowRect);
-            game.scene.pipe.updatePipesPosition(windowRect);
+            game.scene.UpdatePipePosition(windowRect);
             game.scene.Render(hWnd);
             break;
         }

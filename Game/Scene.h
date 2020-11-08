@@ -18,9 +18,15 @@ class Scene {
     public:
         explicit Scene(GameState* _state, Bird* _bird, HWND* hWnd);
         Scene();
+        BOOL isActive = false;
         Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
         void Render(HWND hWnd);
-    private:
+        void MovePipe();
+        void UpdatePipePosition();
+
+    void UpdatePipePosition(RECT windowRect);
+
+private:
         GameState* state;
         Bird* bird;
         static std::string GetAssetsDir();

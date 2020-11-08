@@ -6,10 +6,11 @@
 #include "gdiplus.h"
 #include "GameState.h"
 
+Scene::Scene() {}
+
 Scene::Scene(GameState* _state, Bird* _bird, HWND* hWnd) {
     state = _state;
     bird = _bird;
-//    pipe.GeneratePipes(hWnd);
 }
 
 void Scene::Render(HWND hWnd) {
@@ -97,5 +98,13 @@ std::string Scene::GetAssetsDir() {
     return assetDir;
 }
 
-Scene::Scene() {}
+void Scene::MovePipe() {
+    if (!isActive) return;
+    pipe.Movement();
+}
+
+void Scene::UpdatePipePosition(RECT windowRect) {
+    pipe.GetCoefs(windowRect);
+    pipe.updatePipesPosition(windowRect);
+}
 
