@@ -14,6 +14,11 @@ Scene::Scene(GameState* _state, Bird* _bird, HWND* hWnd) {
 }
 
 void Scene::Render(HWND hWnd) {
+//    HDC hdc1 = GetDC(hWnd);
+//    char fpsText[255] = "FPS = ";
+//    strcpy(fpsText, "60");
+//    RECT rect = {0, 0, 100, 80};
+//    DrawTextA(hdc1, fpsText, strlen(fpsText), &rect, DT_NOCLIP);
     std::string assetDir = GetAssetsDir();
     RECT windowRect;
     if(!GetClientRect(hWnd, &windowRect))
@@ -103,8 +108,8 @@ void Scene::MovePipe() {
     pipe.Movement();
 }
 
-void Scene::UpdatePipePosition(RECT windowRect) {
-    pipe.GetCoefs(windowRect);
-    pipe.updatePipesPosition(windowRect, 0);
+void Scene::UpdateObjectPositions(RECT windowRect) {
+    bird->UpdateBirdPosition(windowRect);
+    pipe.updatePipesPosition(windowRect, 0, false);
 }
 

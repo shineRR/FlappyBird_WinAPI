@@ -24,13 +24,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             double width = (windowRect.right - windowRect.left);
             double height = (windowRect.bottom - windowRect.top);
             game.bird.UpdateMoveDistance(width, height);
-            game.scene.UpdatePipePosition(windowRect);
+            game.scene.UpdateObjectPositions(windowRect);
             game.scene.Render(hWnd);
             break;
         }
         case WM_TIMER: {
             game.scene.MovePipe();
-            game.bird.MoveVertical(windowRect, 0.2);
+            game.MoveBird(windowRect, 0.1);
             game.scene.Render(hWnd);
             break;
         }
@@ -40,8 +40,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             lpMMI->ptMinTrackSize.y = MIN_WINDOW_SIZE.cy;
             double width = (windowRect.right - windowRect.left);
             double height = (windowRect.bottom - windowRect.top);
-            game.bird.UpdateMoveDistance(width, height);
-            game.scene.UpdatePipePosition(windowRect);
+            game.bird.UpdateMoveDistance(height, width);
+            game.scene.UpdateObjectPositions(windowRect);
             game.scene.Render(hWnd);
             break;
         }
@@ -83,7 +83,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
     RegisterClassEx(&wcex);
     hWnd = CreateWindow("Main", "Flappy Bird;",
                         WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
-                        CW_USEDEFAULT, 800, 600, nullptr, nullptr, hInstance, nullptr);
+                        CW_USEDEFAULT, 1280, 720, nullptr, nullptr, hInstance, nullptr);
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
     game.Run(hWnd);

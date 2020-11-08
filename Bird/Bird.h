@@ -5,8 +5,8 @@
 #ifndef FLAPPYBIRD_WINAPI_BIRD_H
 #define FLAPPYBIRD_WINAPI_BIRD_H
 
-#define DEFAULT_WINDOW_WIDTH 800
-#define DEFAULT_WINDOW_HEIGHT 600
+#define DEFAULT_WINDOW_WIDTH 1280
+#define DEFAULT_WINDOW_HEIGHT 720
 
 #include "windows.h"
 #include <iostream>
@@ -17,17 +17,23 @@ class Bird {
     private:
         const int birdWidth = 25;
         const int birdHeight = 25;
+        double coefX = 1;
+        double coefY = 1;
+        int x = 0;
+        int y = 0;
+        int offsetX = 0;
+        int offsetY = 0;
         int moveDistance = 10;
         WCHAR bird[255];
         void ValidatePosition(RECT windowRect, double multiplierDirection);
     public:
-        int x;
-        int y;
         explicit Bird(const WCHAR* _bird);
         void DrawBird(HDC &memDC);
         void UpdateXY(int _x, int _y);
         void MoveVertical(RECT windowRect, double multiplierDirection);
         void UpdateMoveDistance(double windowWidth, double windowHeight);
+        void GetCoefs(RECT rect);
+        void UpdateBirdPosition(RECT windowRect);
 };
 
 

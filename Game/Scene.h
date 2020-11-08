@@ -22,9 +22,7 @@ class Scene {
         Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
         void Render(HWND hWnd);
         void MovePipe();
-        void UpdatePipePosition();
-
-    void UpdatePipePosition(RECT windowRect);
+        void UpdateObjectPositions(RECT windowRect);
 
 private:
         GameState* state;

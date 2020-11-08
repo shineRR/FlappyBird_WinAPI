@@ -16,6 +16,10 @@ gdiplus.h
 cwchar
 -
 
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.cpp
+Game.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
+
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
 algorithm
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/algorithm
@@ -24,6 +28,14 @@ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
 GameState.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
 
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp
+Scene.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
+gdiplus.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/gdiplus.h
+GameState.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
 
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
@@ -41,6 +53,10 @@ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/Bird.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 iostream
 -
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp
+Pipe.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 windows.h

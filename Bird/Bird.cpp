@@ -12,7 +12,7 @@ Bird::Bird(const WCHAR* _bird) {
 
 void Bird::DrawBird(HDC &memDC) {
     Gdiplus::Graphics graphics(memDC);
-    Gdiplus::Rect destRect(x, y, birdWidth, birdHeight);
+    Gdiplus::Rect destRect(x, y, birdWidth * coefX, birdHeight * coefY);
     Gdiplus::Image image(bird);
     graphics.DrawImage(&image, destRect);
 }
@@ -41,4 +41,25 @@ void Bird::UpdateMoveDistance(double windowWidth, double windowHeight) {
     double coefX = windowHeight / DEFAULT_WINDOW_HEIGHT;
     distance *= coefX;
     moveDistance = distance;
+}
+
+void Bird::GetCoefs(RECT rect) {
+    double width = rect.right - rect.left;
+    double height = rect.bottom - rect.top;
+    coefX = width / DEFAULT_WINDOW_WIDTH;
+    coefY = height / DEFAULT_WINDOW_HEIGHT;
+    if (coefY == 0) {
+        coefX = 0.935;
+        coefY = 0.935;
+    }
+}
+
+void Bird::UpdateBirdPosition(RECT windowRect) {
+    GetCoefs(windowRect);
+    x -= offsetX;           // Return initial value
+    y -= offsetY;
+    offsetX = x * coefX - x;
+    offsetY = y * coefY - y;
+    x += offsetX;           // New value
+    y += offsetY;
 }

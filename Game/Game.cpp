@@ -12,11 +12,11 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             break;
         }
         case VK_UP: {
-            bird.MoveVertical(windowRect, upModifier);
+            MoveBird(windowRect, upModifier);
             break;
         }
         case VK_DOWN: {
-            bird.MoveVertical(windowRect, downModifier);
+            MoveBird(windowRect, downModifier);
             break;
         }
         case VK_ESCAPE: {
@@ -27,6 +27,12 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
     }
 //    scene.Render(hWnd);
 }
+
+void Game::MoveBird(RECT windowRect, double multiplierDirection) {
+    if (!scene.isActive) return;
+    bird.MoveVertical(windowRect, multiplierDirection);
+}
+
 
 void Game::Run(HWND hWnd) {
     RECT windowRect;

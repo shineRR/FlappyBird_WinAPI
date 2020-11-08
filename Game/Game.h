@@ -20,7 +20,7 @@ class Game {
         GameState gameState = GameState(INTRO);
         Bird bird = Bird(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\redbird-midflap.png");
         Scene scene = Scene(&gameState, &bird, &hWnd);
-
+        void MoveBird(RECT windowRect, double multiplierDirection);
         void KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect);
         void Run(HWND hWnd);
         void Quit();
