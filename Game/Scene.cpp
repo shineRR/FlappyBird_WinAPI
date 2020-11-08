@@ -105,6 +105,6 @@ void Scene::MovePipe() {
 
 void Scene::UpdatePipePosition(RECT windowRect) {
     pipe.GetCoefs(windowRect);
-    pipe.updatePipesPosition(windowRect);
+    pipe.updatePipesPosition(windowRect, 0);
 }
 

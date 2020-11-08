@@ -19,14 +19,14 @@ class Bird {
         const int birdHeight = 25;
         int moveDistance = 10;
         WCHAR bird[255];
-        void ValidatePosition(RECT windowRect, int multiplierDirection);
+        void ValidatePosition(RECT windowRect, double multiplierDirection);
     public:
         int x;
         int y;
         explicit Bird(const WCHAR* _bird);
         void DrawBird(HDC &memDC);
         void UpdateXY(int _x, int _y);
-        void MoveVertical(RECT windowRect, int multiplierDirection);
+        void MoveVertical(RECT windowRect, double multiplierDirection);
         void UpdateMoveDistance(double windowWidth, double windowHeight);
 };
 

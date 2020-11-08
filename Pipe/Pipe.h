@@ -11,8 +11,10 @@
 #include "windows.h"
 #include <iostream>
 #include <gdiplus.h>
+#include <ctime>
 #include <cwchar>
 #include <cstring>
+#include <cstdlib>
 
 struct PipeItem {
     int x;
@@ -28,13 +30,15 @@ class Pipe {
         WCHAR pipeType[255];
         double coefX = 1;
         double coefY = 1;
+        void GeneratePipes(RECT windowRect);
+        void InitializePipes();
+        static int * GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight);
     public:
         explicit Pipe(const WCHAR* _pipeType);
-        void GeneratePipes(RECT windowRect);
         void DrawPipes(HDC &memDC);
         void PrintPipes();
         void Movement();
-        void updatePipesPosition(RECT rect);
+        void updatePipesPosition(RECT windowRect, int initialPx);
         void GetCoefs(RECT rect);
 };
 

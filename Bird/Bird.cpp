@@ -17,7 +17,7 @@ void Bird::DrawBird(HDC &memDC) {
     graphics.DrawImage(&image, destRect);
 }
 
-void Bird::ValidatePosition(RECT windowRect, int multiplierDirection) {
+void Bird::ValidatePosition(RECT windowRect, double multiplierDirection) {
     int moveDist = y + moveDistance * multiplierDirection;
     if (moveDist <= windowRect.top && multiplierDirection < 0 ||
             moveDist >= windowRect.bottom && multiplierDirection > 0) {
@@ -31,7 +31,7 @@ void Bird::UpdateXY(int _x, int _y) {
     y = _y;
 }
 
-void Bird::MoveVertical(RECT windowRect, int multiplierDirection) {
+void Bird::MoveVertical(RECT windowRect, double multiplierDirection) {
     windowRect.bottom -= birdHeight;
     ValidatePosition(windowRect, multiplierDirection);
 }

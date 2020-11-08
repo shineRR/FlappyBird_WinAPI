@@ -16,10 +16,6 @@ gdiplus.h
 cwchar
 -
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.cpp
-Game.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
-
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
 algorithm
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/algorithm
@@ -53,8 +49,22 @@ iostream
 -
 gdiplus.h
 -
+ctime
+-
 cwchar
 -
 cstring
 -
+cstdlib
+-
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/main.cpp
+iostream
+-
+windows.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/windows.h
+gdiplus.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/gdiplus.h
+Game/Game.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
 

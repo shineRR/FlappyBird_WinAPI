@@ -3,8 +3,7 @@
 #include "gdiplus.h"
 #include "Game/Game.h"
 
-#define TIMER_SECOND 1
-#define BIRD_TIMER 2
+#define FPS_TIMER 1
 
 const SIZE MIN_WINDOW_SIZE = {640,480};
 const double FPS = 1000 / 60;
@@ -18,8 +17,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message) {
         case WM_CREATE: {
             game.hWnd = hWnd;
-            SetTimer(hWnd, TIMER_SECOND, FPS, NULL);
-            SetTimer(hWnd, BIRD_TIMER, 400, NULL);
+            SetTimer(hWnd, FPS_TIMER, FPS, nullptr);
             break;
         }
         case WM_SIZE: {
@@ -31,17 +29,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             break;
         }
         case WM_TIMER: {
-            switch (wParam) {
-                case TIMER_SECOND: {
-                    game.scene.MovePipe();
-                    game.scene.Render(hWnd);
-                    break;
-                }
-                case BIRD_TIMER: {
-                    game.bird.MoveVertical(windowRect, 1);
-                    break;
-                }
-            }
+            game.scene.MovePipe();
+            game.bird.MoveVertical(windowRect, 0.2);
+            game.scene.Render(hWnd);
             break;
         }
         case WM_GETMINMAXINFO: {
