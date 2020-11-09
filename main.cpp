@@ -29,7 +29,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             break;
         }
         case WM_TIMER: {
-            game.scene.MovePipe();
+            game.scene.MovePipe(windowRect);
             game.MoveBird(windowRect, 0.1);
             game.scene.Render(hWnd);
             break;

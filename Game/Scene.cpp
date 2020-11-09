@@ -14,11 +14,6 @@ Scene::Scene(GameState* _state, Bird* _bird, HWND* hWnd) {
 }
 
 void Scene::Render(HWND hWnd) {
-//    HDC hdc1 = GetDC(hWnd);
-//    char fpsText[255] = "FPS = ";
-//    strcpy(fpsText, "60");
-//    RECT rect = {0, 0, 100, 80};
-//    DrawTextA(hdc1, fpsText, strlen(fpsText), &rect, DT_NOCLIP);
     std::string assetDir = GetAssetsDir();
     RECT windowRect;
     if(!GetClientRect(hWnd, &windowRect))
@@ -44,8 +39,8 @@ void Scene::Render(HWND hWnd) {
     } else {
         DrawBackground(memDC, windowRect);
         DrawFloor(memDC, windowRect);
-        bird->DrawBird(memDC);
         pipe.DrawPipes(memDC);
+        bird->DrawBird(memDC);
 //        DrawStartMenu(memDC, windowRect);
     }
 
@@ -103,13 +98,14 @@ std::string Scene::GetAssetsDir() {
     return assetDir;
 }
 
-void Scene::MovePipe() {
+void Scene::MovePipe(RECT windowRect) {
     if (!isActive) return;
+    pipe.ValidateMap(windowRect);
     pipe.Movement();
 }
 
 void Scene::UpdateObjectPositions(RECT windowRect) {
     bird->UpdateBirdPosition(windowRect);
-    pipe.updatePipesPosition(windowRect, 0, false);
+    pipe.updatePipesPosition(windowRect, pipe.pipes, 0, false);
 }
 

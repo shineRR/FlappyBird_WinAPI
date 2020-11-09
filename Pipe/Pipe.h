@@ -31,19 +31,24 @@ struct PipeItem {
 class Pipe {
     private:
         const int pipeWidth = 80;
-        PipeItem pipes[PIPES][COUPLE];
+        PipeItem nextPipes[PIPES][COUPLE];
+
         WCHAR pipeType[255];
         double coefX = 1;
-        void InitializePipes();
+//        void InitializePipes();
+        static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE]);
         static int * GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight);
     public:
+        PipeItem pipes[PIPES][COUPLE];
         double coefY = 1;
         explicit Pipe(const WCHAR* _pipeType);
         void DrawPipes(HDC &memDC);
         void PrintPipes();
+        void ValidateMap(RECT windowRect);
         void Movement();
         void GetCoefs(RECT rect);
-        void updatePipesPosition(RECT windowRect, int initialPx, BOOL generate);
+        void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);
+        void GenerateNextPipes(RECT windowRect);
 };
 
 

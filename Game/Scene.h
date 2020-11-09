@@ -21,7 +21,7 @@ class Scene {
         BOOL isActive = false;
         Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
         void Render(HWND hWnd);
-        void MovePipe();
+        void MovePipe(RECT windowRect);
         void UpdateObjectPositions(RECT windowRect);
 
 private:
@@ -31,6 +31,7 @@ private:
         void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);
         void DrawBackground(HDC &memDC, RECT windowRect);
+
 };
 
 
