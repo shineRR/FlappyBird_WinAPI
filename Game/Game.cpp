@@ -20,12 +20,14 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             break;
         }
         case VK_ESCAPE: {
-            scene.isActive = !scene.isActive;
+            scene.isActive = false;
             gameState.ChangeToIntro();
+            bird.UpdateXY(windowRect);
+            Pipe::InitializePipes(scene.pipe.pipes);
+            scene.pipe.updatePipesPosition(windowRect, scene.pipe.pipes, DEFAULT_WINDOW_WIDTH, true);
             break;
         }
     }
-//    scene.Render(hWnd);
 }
 
 void Game::MoveBird(RECT windowRect, double multiplierDirection) {
@@ -37,11 +39,7 @@ void Game::MoveBird(RECT windowRect, double multiplierDirection) {
 void Game::Run(HWND hWnd) {
     RECT windowRect;
     GetClientRect(hWnd, &windowRect);
-    int width = (windowRect.right - windowRect.left);
-    int height = (windowRect.bottom - windowRect.top);
-    int _x = width / 2 - 40;
-    int _y = height / 2;
-    bird.UpdateXY(_x, _y);
+    bird.UpdateXY(windowRect);
     scene.Render(hWnd);
 }
 

@@ -29,11 +29,11 @@ class Bird {
     public:
         explicit Bird(const WCHAR* _bird);
         void DrawBird(HDC &memDC);
-        void UpdateXY(int _x, int _y);
         void MoveVertical(RECT windowRect, double multiplierDirection);
         void UpdateMoveDistance(double windowWidth, double windowHeight);
         void GetCoefs(RECT rect);
         void UpdateBirdPosition(RECT windowRect);
+        void UpdateXY(RECT windowRect);
 };
 
 

@@ -35,9 +35,8 @@ class Pipe {
 
         WCHAR pipeType[255];
         double coefX = 1;
-//        void InitializePipes();
-        static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE]);
-        static int * GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight);
+
+    static int * GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight);
     public:
         PipeItem pipes[PIPES][COUPLE];
         double coefY = 1;
@@ -49,6 +48,8 @@ class Pipe {
         void GetCoefs(RECT rect);
         void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);
         void GenerateNextPipes(RECT windowRect);
+
+    static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE]);
 };
 
 

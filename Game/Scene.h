@@ -16,7 +16,7 @@
 
 class Scene {
     public:
-        explicit Scene(GameState* _state, Bird* _bird, HWND* hWnd);
+        Scene(GameState* _state, Bird* _bird);
         Scene();
         BOOL isActive = false;
         Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");

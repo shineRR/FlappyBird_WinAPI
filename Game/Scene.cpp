@@ -8,7 +8,7 @@
 
 Scene::Scene() {}
 
-Scene::Scene(GameState* _state, Bird* _bird, HWND* hWnd) {
+Scene::Scene(GameState* _state, Bird* _bird) {
     state = _state;
     bird = _bird;
 }
@@ -108,4 +108,3 @@ void Scene::UpdateObjectPositions(RECT windowRect) {
     bird->UpdateBirdPosition(windowRect);
     pipe.updatePipesPosition(windowRect, pipe.pipes, 0, false);
 }
-

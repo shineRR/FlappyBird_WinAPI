@@ -26,9 +26,11 @@ void Bird::ValidatePosition(RECT windowRect, double multiplierDirection) {
     y = moveDist;
 }
 
-void Bird::UpdateXY(int _x, int _y) {
-    x = _x;
-    y = _y;
+void Bird::UpdateXY(RECT windowRect) {
+    int width = (windowRect.right - windowRect.left);
+    int height = (windowRect.bottom - windowRect.top);
+    x =  width / 2 - 40;
+    y = height / 2;
 }
 
 void Bird::MoveVertical(RECT windowRect, double multiplierDirection) {

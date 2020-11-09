@@ -16,7 +16,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     GetClientRect(hWnd, &windowRect);
     switch (message) {
         case WM_CREATE: {
-            game.hWnd = hWnd;
             SetTimer(hWnd, FPS_TIMER, FPS, nullptr);
             break;
         }

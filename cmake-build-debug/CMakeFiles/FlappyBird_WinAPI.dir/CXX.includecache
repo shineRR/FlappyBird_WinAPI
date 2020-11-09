@@ -30,14 +30,6 @@ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
 
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp
-Scene.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
-gdiplus.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/gdiplus.h
-GameState.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
-
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h
 string
 -
@@ -54,10 +46,6 @@ C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 iostream
 -
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp
-Pipe.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
-
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
 windows.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/windows.h
@@ -73,14 +61,4 @@ cstring
 -
 cstdlib
 -
-
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/main.cpp
-iostream
--
-windows.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/windows.h
-gdiplus.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/gdiplus.h
-Game/Game.h
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Game.h
 
