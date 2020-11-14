@@ -13,7 +13,6 @@ class Game {
     private:
         const int downModifier = 1;
         const int upModifier = -1;
-        int money = 0;
     public:
         Game() = default;
         GameState gameState = GameState(INTRO);
@@ -21,6 +20,7 @@ class Game {
         Scene scene = Scene(&gameState, &bird);
         void MoveBird(RECT windowRect, double multiplierDirection);
         void KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect);
+        int GetCoins();
         void Run(HWND hWnd);
         void Quit();
 };

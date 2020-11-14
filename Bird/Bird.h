@@ -34,6 +34,7 @@ class Bird {
         void GetCoefs(RECT rect);
         void UpdateBirdPosition(RECT windowRect);
         void UpdateXY(RECT windowRect);
+        POINTL GetPos();
 };
 
 

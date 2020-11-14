@@ -17,6 +17,11 @@ void Bird::DrawBird(HDC &memDC) {
     graphics.DrawImage(&image, destRect);
 }
 
+POINTL Bird::GetPos() {
+    POINTL point = {x, y};
+    return point;
+}
+
 void Bird::ValidatePosition(RECT windowRect, double multiplierDirection) {
     int moveDist = y + moveDistance * multiplierDirection;
     if (moveDist <= windowRect.top && multiplierDirection < 0 ||

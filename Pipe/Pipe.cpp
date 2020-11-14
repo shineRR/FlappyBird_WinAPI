@@ -4,16 +4,17 @@
 
 #include "Pipe.h"
 
-Pipe::Pipe(const WCHAR* _pipeType) {
+Pipe::Pipe(const WCHAR* _pipeType, int coins) {
+    _coins = coins;
     srand((unsigned int)time(nullptr));
     wcscpy(pipeType, _pipeType);
-    InitializePipes(pipes);
-    InitializePipes(nextPipes);
+    InitializePipes(pipes, true);
+    InitializePipes(nextPipes, false);
     RECT rect = {0, 0, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT};
     updatePipesPosition(rect, pipes, DEFAULT_WINDOW_WIDTH, true);
 }
 
-void Pipe::InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE]) {
+void Pipe::InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin) {
     for (int i = 0; i < PIPES; ++i) {
         for (int j = 0; j < COUPLE; ++j) {
             pipeItem[i][j].x = 0;
@@ -23,6 +24,7 @@ void Pipe::InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE]) {
             pipeItem[i][j].offsetX = 0;
             pipeItem[i][j].distanceFromFirstPipe = 0;
             pipeItem[i][j].offsetY = 0;
+            pipeItem[i][j].hasCoin = (genCoin && j == 0) && randCoin();
         }
     }
 }
@@ -65,9 +67,11 @@ void Pipe::updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUP
     }
 }
 
-void Pipe::DrawPipes(HDC &memDC) {
+void Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
     Gdiplus::Graphics graphics(memDC);
     for (int i = 0; i < PIPES; ++i) {
+        CobllectCoin(birdPoint, i);
+        DrawCoin(graphics, i);
         for (int j = 0; j < COUPLE; ++j) {
             Gdiplus::Rect destRect(pipes[i][j].x, pipes[i][j].y, pipes[i][j].width, pipes[i][j].height);
             Gdiplus::Image image(pipeType);
@@ -76,6 +80,42 @@ void Pipe::DrawPipes(HDC &memDC) {
             }
             graphics.DrawImage(&image, destRect);
         }
+    }
+    DrawCollectedCoins(graphics, _coins);
+}
+
+void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int totalCoins) {
+    std::string text = "Coins: ";
+    text += std::to_string(totalCoins);
+    std::wstring wide_string = std::wstring(text.begin(), text.end());
+    const wchar_t* result = wide_string.c_str();
+    WCHAR wchar[255];
+    wcscpy(wchar, result);
+    Gdiplus::FontFamily   fontFamily(L"Arial");
+    Gdiplus::Font         font(&fontFamily, 12, Gdiplus::FontStyleBold, Gdiplus::UnitPoint);
+    Gdiplus::RectF        rectF(30.0f, 10.0f, 100.0f, 122.0f);
+    Gdiplus::SolidBrush   solidBrush(Gdiplus::Color(255, 255, 255, 255));
+    graphics.DrawString(wchar, -1, &font, rectF, NULL, &solidBrush);
+}
+
+void Pipe::CobllectCoin(POINTL birdPoint, int i) {
+    int pipePos = pipes[i][0].x + 20 * coefX;
+    if(pipes[i][0].hasCoin && pipePos <= birdPoint.x)
+    {
+        pipes[i][0].hasCoin = false;
+        _coins++;
+    }
+}
+
+void Pipe::DrawCoin(Gdiplus::Graphics &graphics, int i) {
+    if(pipes[i][0].hasCoin) {
+        int x = pipes[i][0].x + 20 * coefX;
+        int y = pipes[i][0].height + 40 * coefY;
+        int width = 40 * coefX;
+        int height = 40 * coefY;
+        Gdiplus::Rect rectForCoin(x, y, width, height);
+        Gdiplus::Image coinImg(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\coin.png");
+        graphics.DrawImage(&coinImg, rectForCoin);
     }
 }
 
@@ -127,7 +167,7 @@ void Pipe::PrintPipes() {
 }
 
 void Pipe::ValidateMap(RECT windowRect) {
-    if (pipes[5][1].x <= 0) {
+    if (pipes[MIDDLE][1].x <= 0) {
         GenerateNextPipes(windowRect);
     }
 }
@@ -135,24 +175,24 @@ void Pipe::ValidateMap(RECT windowRect) {
 void Pipe::GenerateNextPipes(RECT windowRect) {
 
     int initialPx = pipes[PIPES - 1][0].x + pipes[PIPES - 1][0].width + 200 * coefX;
-    InitializePipes(nextPipes);
+    InitializePipes(nextPipes, true);
     updatePipesPosition(windowRect, nextPipes, initialPx, true);
 
     const int distance = nextPipes[2][0].distanceFromFirstPipe - nextPipes[1][0].distanceFromFirstPipe;
     PipeItem tempPipes[PIPES][COUPLE];
 
     int distanceFromFirstPipe = 0;
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < MIDDLE; ++i) {
         for (int j = 0; j < COUPLE; ++j) {
-            tempPipes[i][j] = pipes[5 + i][j];    // 0...4
+            tempPipes[i][j] = pipes[MIDDLE + i][j];    // 0...4
             tempPipes[i][j].distanceFromFirstPipe = distanceFromFirstPipe;
         }
         distanceFromFirstPipe += distance;
     }
 
-    for (int i = 5; i < PIPES; ++i) {
+    for (int i = MIDDLE; i < PIPES; ++i) {
         for (int j = 0; j < COUPLE; ++j) {
-            tempPipes[i][j] = nextPipes[i - 5][j];  // 5...9
+            tempPipes[i][j] = nextPipes[i - MIDDLE][j];  // 5...9
             tempPipes[i][j].distanceFromFirstPipe = distanceFromFirstPipe;
         }
         distanceFromFirstPipe += distance;
@@ -163,4 +203,13 @@ void Pipe::GenerateNextPipes(RECT windowRect) {
             pipes[i][j] = tempPipes[i][j];
         }
     }
+}
+
+bool Pipe::randCoin() {
+    int value = rand() % 100;
+    return value % 4 == 0;
+}
+
+int Pipe::ResetCounter() {
+    return _coins;
 }

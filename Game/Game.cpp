@@ -21,9 +21,10 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
         }
         case VK_ESCAPE: {
             scene.isActive = false;
+            scene.ResetCounter();
             gameState.ChangeToIntro();
             bird.UpdateXY(windowRect);
-            Pipe::InitializePipes(scene.pipe.pipes);
+            Pipe::InitializePipes(scene.pipe.pipes, true);
             scene.pipe.updatePipesPosition(windowRect, scene.pipe.pipes, DEFAULT_WINDOW_WIDTH, true);
             break;
         }
@@ -43,6 +44,11 @@ void Game::Run(HWND hWnd) {
     scene.Render(hWnd);
 }
 
+int Game::GetCoins() {
+    return scene.coins;
+}
+
 void Game::Quit() {
 
 }
+

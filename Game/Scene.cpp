@@ -36,10 +36,11 @@ void Scene::Render(HWND hWnd) {
         DrawBackground(memDC, windowRect);
         DrawFloor(memDC, windowRect);
         DrawStartMenu(memDC, windowRect);
+        pipe.DrawCollectedCoins(graphics, coins);
     } else {
         DrawBackground(memDC, windowRect);
         DrawFloor(memDC, windowRect);
-        pipe.DrawPipes(memDC);
+        pipe.DrawPipes(memDC, bird->GetPos());
         bird->DrawBird(memDC);
 //        DrawStartMenu(memDC, windowRect);
     }
@@ -107,4 +108,8 @@ void Scene::MovePipe(RECT windowRect) {
 void Scene::UpdateObjectPositions(RECT windowRect) {
     bird->UpdateBirdPosition(windowRect);
     pipe.updatePipesPosition(windowRect, pipe.pipes, 0, false);
+}
+
+int Scene::ResetCounter() {
+    coins = pipe.ResetCounter();
 }

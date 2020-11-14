@@ -18,12 +18,13 @@ class Scene {
     public:
         Scene(GameState* _state, Bird* _bird);
         Scene();
+        int coins = 0;
         BOOL isActive = false;
-        Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
+        Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png", coins);
         void Render(HWND hWnd);
         void MovePipe(RECT windowRect);
         void UpdateObjectPositions(RECT windowRect);
-
+        int ResetCounter();
 private:
         GameState* state;
         Bird* bird;
@@ -31,7 +32,6 @@ private:
         void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);
         void DrawBackground(HDC &memDC, RECT windowRect);
-
 };
 
 
