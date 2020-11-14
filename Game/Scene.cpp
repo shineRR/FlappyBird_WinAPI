@@ -112,4 +112,5 @@ void Scene::UpdateObjectPositions(RECT windowRect) {
 
 int Scene::ResetCounter() {
     coins = pipe.ResetCounter();
+    pipe.StopCounting();
 }

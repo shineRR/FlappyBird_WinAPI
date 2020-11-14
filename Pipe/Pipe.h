@@ -15,9 +15,9 @@
 
 #define DEFAULT_WINDOW_WIDTH 1280
 #define DEFAULT_WINDOW_HEIGHT 720
-#define PIPES 15
+#define PIPES 16
 #define COUPLE 2
-#define MIDDLE 10
+#define MIDDLE 8
 
 struct PipeItem {
     int x;
@@ -28,6 +28,7 @@ struct PipeItem {
     int distanceFromFirstPipe;
     int offsetY;
     bool hasCoin;
+    bool passed;
 };
 
 class Pipe {
@@ -35,6 +36,7 @@ class Pipe {
         const int pipeWidth = 80;
         PipeItem nextPipes[PIPES][COUPLE];
         int _coins;
+        int traveledDistance = 0;
 
         WCHAR pipeType[255];
         double coefX = 1;
@@ -48,11 +50,15 @@ class Pipe {
         explicit Pipe(const WCHAR* _pipeType, int coins);
         void DrawPipes(HDC &memDC, POINTL birdPoint);
         void DrawCoin(Gdiplus::Graphics &graphics, int i);
-        void DrawCollectedCoins(Gdiplus::Graphics &graphics, int totalCoins);
+        void DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins);
+        void DrawTraveledDistance(Gdiplus::Graphics &graphics);
+        void DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::RectF rectF);
         void CobllectCoin(POINTL birdPoint, int i);
+        void IncTraveledDistance(POINTL birdPoint, int i);
         void PrintPipes();
         void ValidateMap(RECT windowRect);
         void Movement();
+        void StopCounting();
         int ResetCounter();
         void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);
         static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin);

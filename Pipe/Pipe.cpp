@@ -25,6 +25,7 @@ void Pipe::InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin) {
             pipeItem[i][j].distanceFromFirstPipe = 0;
             pipeItem[i][j].offsetY = 0;
             pipeItem[i][j].hasCoin = (genCoin && j == 0) && randCoin();
+            pipeItem[i][j].passed = false;
         }
     }
 }
@@ -72,6 +73,7 @@ void Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
     for (int i = 0; i < PIPES; ++i) {
         CobllectCoin(birdPoint, i);
         DrawCoin(graphics, i);
+        IncTraveledDistance(birdPoint, i);
         for (int j = 0; j < COUPLE; ++j) {
             Gdiplus::Rect destRect(pipes[i][j].x, pipes[i][j].y, pipes[i][j].width, pipes[i][j].height);
             Gdiplus::Image image(pipeType);
@@ -82,21 +84,47 @@ void Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
         }
     }
     DrawCollectedCoins(graphics, _coins);
+    DrawTraveledDistance(graphics);
+//    PrintPipes();
 }
 
-void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int totalCoins) {
-    std::string text = "Coins: ";
-    text += std::to_string(totalCoins);
+
+
+void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins) {
+    std::string text("Coins: ");
+    Gdiplus::RectF  rectF(15.0f, 10.0f, 100.0f, 100.0f);
+    text += std::to_string(_coins);
+    DrawTextZ(graphics, text, rectF);
+}
+
+void Pipe::DrawTraveledDistance(Gdiplus::Graphics &graphics) {
+    std::string text("Traveled Distance: ");
+    Gdiplus::RectF  rectF(15.0f, 40.0f, 300.0f, 100.0f);
+    text += std::to_string(traveledDistance);
+    DrawTextZ(graphics, text, rectF);
+}
+
+void Pipe::DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::RectF rectF) {
     std::wstring wide_string = std::wstring(text.begin(), text.end());
     const wchar_t* result = wide_string.c_str();
     WCHAR wchar[255];
     wcscpy(wchar, result);
     Gdiplus::FontFamily   fontFamily(L"Arial");
     Gdiplus::Font         font(&fontFamily, 12, Gdiplus::FontStyleBold, Gdiplus::UnitPoint);
-    Gdiplus::RectF        rectF(30.0f, 10.0f, 100.0f, 122.0f);
     Gdiplus::SolidBrush   solidBrush(Gdiplus::Color(255, 255, 255, 255));
     graphics.DrawString(wchar, -1, &font, rectF, NULL, &solidBrush);
 }
+
+void Pipe::IncTraveledDistance(POINTL birdPoint, int i) {
+    int pipePos = pipes[i][0].x + 20 * coefX;
+    if(!pipes[i][0].passed && pipePos <= birdPoint.x)
+    {
+        pipes[i][0].passed = true;
+        pipes[i][1].passed = true;
+        traveledDistance++;
+    }
+}
+
 
 void Pipe::CobllectCoin(POINTL birdPoint, int i) {
     int pipePos = pipes[i][0].x + 20 * coefX;
@@ -145,7 +173,6 @@ void Pipe::PrintPipes() {
             std::cout << i;
             std::cout << " ";
             std::cout << j << std::endl;
-
 
             std::cout << "x = ";
             std::cout << pipes[i][j].x << std::endl;
@@ -212,4 +239,8 @@ bool Pipe::randCoin() {
 
 int Pipe::ResetCounter() {
     return _coins;
+}
+
+void Pipe::StopCounting() {
+    traveledDistance = 0;
 }
