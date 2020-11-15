@@ -37,8 +37,8 @@ int * Pipe::GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight) {
 
 void Pipe::updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate) {
     GetCoefs(windowRect);
-    const int distanceBetweenPipesX = 280 * coefX;
-    const int distanceBetweenPipesY = 120 * coefY;
+    const int distanceBetweenPipesX = int(280 * coefX);
+    const int distanceBetweenPipesY = int(120 * coefY);
 
     int distanceFromFirstPipe = 0;
     int windowHeight = windowRect.bottom - windowRect.top;
@@ -51,14 +51,14 @@ void Pipe::updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUP
 
         for (int j = 0; j < COUPLE; ++j) {
             pipeItem[i][j].x -= pipeItem[i][j].offsetX + pipeItem[i][j].distanceFromFirstPipe ;
-            int offsetX = pipeItem[i][j].x * coefX - pipeItem[i][j].x;
+            int offsetX = int(pipeItem[i][j].x * coefX) - pipeItem[i][j].x;
             pipeItem[i][j].x = pipeItem[i][j].x + offsetX + distanceFromFirstPipe + initialPx;
             pipeItem[i][j].offsetX = offsetX;
             pipeItem[i][j].distanceFromFirstPipe = distanceFromFirstPipe;
             pipeItem[i][j].y = 0 + offsetY;
-            pipeItem[i][j].width = pipeWidth * coefX;
+            pipeItem[i][j].width = int(pipeWidth * coefX);
             pipeItem[i][j].height -= pipeItem[i][j].offsetY;
-            int additionalY = pipeItem[i][j].height * coefY - pipeItem[i][j].height;
+            int additionalY = int(pipeItem[i][j].height * coefY) - pipeItem[i][j].height;
             pipeItem[i][j].height = generate ? pipesHeight[j] : pipeItem[i][j].height + additionalY;
             pipeItem[i][j].offsetY = additionalY;
 
@@ -68,10 +68,13 @@ void Pipe::updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUP
     }
 }
 
-void Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
+bool Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
     Gdiplus::Graphics graphics(memDC);
+    bool collision = false;
     for (int i = 0; i < PIPES; ++i) {
-        CobllectCoin(birdPoint, i);
+        if (!pipes[i][0].passed && (!pipes[0][0].passed || pipes[i-1][0].passed) && CollisionCheck(birdPoint, i))
+            collision = true;
+        CollectCoin(birdPoint, i);
         DrawCoin(graphics, i);
         IncTraveledDistance(birdPoint, i);
         for (int j = 0; j < COUPLE; ++j) {
@@ -85,10 +88,8 @@ void Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
     }
     DrawCollectedCoins(graphics, _coins);
     DrawTraveledDistance(graphics);
-//    PrintPipes();
+    return collision;
 }
-
-
 
 void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins) {
     std::string text("Coins: ");
@@ -115,8 +116,18 @@ void Pipe::DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::Rec
     graphics.DrawString(wchar, -1, &font, rectF, NULL, &solidBrush);
 }
 
+bool Pipe::CollisionCheck(POINTL birdPoint, int i) {
+    int pipeX = pipes[i][0].x;
+    int upperHeight = pipes[i][0].height;
+    const int distanceBetweenPipesY = int(120 * coefY);
+    int lowerHeight = upperHeight + distanceBetweenPipesY;
+    if(birdPoint.x >= pipeX && (birdPoint.y <= upperHeight || birdPoint.y >= lowerHeight))
+        return true;
+    return false;
+}
+
 void Pipe::IncTraveledDistance(POINTL birdPoint, int i) {
-    int pipePos = pipes[i][0].x + 20 * coefX;
+    int pipePos = pipes[i][0].x + pipes[i][0].width * coefX;
     if(!pipes[i][0].passed && pipePos <= birdPoint.x)
     {
         pipes[i][0].passed = true;
@@ -126,7 +137,7 @@ void Pipe::IncTraveledDistance(POINTL birdPoint, int i) {
 }
 
 
-void Pipe::CobllectCoin(POINTL birdPoint, int i) {
+void Pipe::CollectCoin(POINTL birdPoint, int i) {
     int pipePos = pipes[i][0].x + 20 * coefX;
     if(pipes[i][0].hasCoin && pipePos <= birdPoint.x)
     {
@@ -137,10 +148,10 @@ void Pipe::CobllectCoin(POINTL birdPoint, int i) {
 
 void Pipe::DrawCoin(Gdiplus::Graphics &graphics, int i) {
     if(pipes[i][0].hasCoin) {
-        int x = pipes[i][0].x + 20 * coefX;
-        int y = pipes[i][0].height + 40 * coefY;
-        int width = 40 * coefX;
-        int height = 40 * coefY;
+        int x = pipes[i][0].x + int(20 * coefX);
+        int y = pipes[i][0].height + int(40 * coefY);
+        int width = int(40 * coefX);
+        int height = int(40 * coefY);
         Gdiplus::Rect rectForCoin(x, y, width, height);
         Gdiplus::Image coinImg(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\coin.png");
         graphics.DrawImage(&coinImg, rectForCoin);
@@ -237,10 +248,14 @@ bool Pipe::randCoin() {
     return value % 4 == 0;
 }
 
-int Pipe::ResetCounter() {
+int Pipe::ResetCounter() const {
     return _coins;
 }
 
 void Pipe::StopCounting() {
     traveledDistance = 0;
+}
+
+int Pipe::GetTraveledDistance() const {
+    return traveledDistance;
 }

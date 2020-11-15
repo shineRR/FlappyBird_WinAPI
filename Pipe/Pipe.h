@@ -48,20 +48,22 @@ class Pipe {
         PipeItem pipes[PIPES][COUPLE];
         double coefY = 1;
         explicit Pipe(const WCHAR* _pipeType, int coins);
-        void DrawPipes(HDC &memDC, POINTL birdPoint);
+        void CollectCoin(POINTL birdPoint, int i);
+        bool CollisionCheck(POINTL birdPoint, int i);
+        bool DrawPipes(HDC &memDC, POINTL birdPoint);
         void DrawCoin(Gdiplus::Graphics &graphics, int i);
         void DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins);
         void DrawTraveledDistance(Gdiplus::Graphics &graphics);
         void DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::RectF rectF);
-        void CobllectCoin(POINTL birdPoint, int i);
+        int GetTraveledDistance() const;
         void IncTraveledDistance(POINTL birdPoint, int i);
-        void PrintPipes();
-        void ValidateMap(RECT windowRect);
-        void Movement();
-        void StopCounting();
-        int ResetCounter();
-        void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);
         static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin);
+        void Movement();
+        void PrintPipes();
+        int ResetCounter() const;
+        void StopCounting();
+        void ValidateMap(RECT windowRect);
+        void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);
 };
 
 

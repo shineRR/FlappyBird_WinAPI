@@ -32,6 +32,8 @@ private:
         void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);
         void DrawBackground(HDC &memDC, RECT windowRect);
+        void DrawGameOver(HDC &memDC, RECT windowRect);
+        void DrawScore(HDC &memDC, RECT windowRect);
 };
 
 

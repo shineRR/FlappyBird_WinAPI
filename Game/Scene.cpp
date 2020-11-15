@@ -2,6 +2,7 @@
 // Created by shine on 11/3/2020.
 //
 
+#include <vector>
 #include "Scene.h"
 #include "gdiplus.h"
 #include "GameState.h"
@@ -32,17 +33,37 @@ void Scene::Render(HWND hWnd) {
     HBITMAP  oldbmp = (HBITMAP)SelectObject(memDC, hBM);
 
     Gdiplus::Graphics graphics(memDC);
-    if (state->GetState() == INTRO) {
-        DrawBackground(memDC, windowRect);
-        DrawFloor(memDC, windowRect);
-        DrawStartMenu(memDC, windowRect);
-        pipe.DrawCollectedCoins(graphics, coins);
-    } else {
-        DrawBackground(memDC, windowRect);
-        DrawFloor(memDC, windowRect);
-        pipe.DrawPipes(memDC, bird->GetPos());
-        bird->DrawBird(memDC);
+    switch (state->GetState()) {
+        case INTRO: {
+            DrawBackground(memDC, windowRect);
+            DrawFloor(memDC, windowRect);
+            DrawStartMenu(memDC, windowRect);
+            pipe.DrawCollectedCoins(graphics, coins);
+            break;
+        }
+        case GAMELEVEL: {
+            DrawBackground(memDC, windowRect);
+            DrawFloor(memDC, windowRect);
+            if (pipe.DrawPipes(memDC, bird->GetPos())) {
+                state->ChangeToScore();
+                isActive = false;
+            }
+            bird->DrawBird(memDC);
 //        DrawStartMenu(memDC, windowRect);
+            break;
+        }
+        case SCORE: {
+            DrawBackground(memDC, windowRect);
+            DrawFloor(memDC, windowRect);
+            DrawGameOver(memDC, windowRect);
+            std::string text("Traveled Distance: ");
+            text += std::to_string(pipe.GetTraveledDistance());
+            Gdiplus::RectF rectF(15.0f, 10.0f, 100.0f, 100.0f);
+            pipe.DrawTextZ(graphics, text, rectF);
+            DrawScore(memDC, windowRect);
+
+            break;
+        }
     }
 
     BitBlt(hdc, left, top, width, height, memDC, left, top, SRCCOPY);
@@ -75,6 +96,35 @@ void Scene::DrawFloor(HDC &memDC, RECT windowRect) {
     Gdiplus::Graphics graphics(memDC);
     Gdiplus::Rect destRect(0, height * 0.87, width, height * 0.2);
     Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\base.png");
+    graphics.DrawImage(&image, destRect);
+}
+
+void Scene::DrawScore(HDC &memDC, RECT windowRect) {
+    int score = pipe.GetTraveledDistance();
+    std::vector<int> vector;
+    while (score != 0) {
+        int part = score % 10;
+        score /= 10;
+        vector.push_back(part);
+    }
+    for (int i = 0; i < vector.size(); ++i) {
+        std::cout << vector[i] << std::endl;
+    }
+    std::cout << "_____________________" << std::endl;
+}
+
+void Scene::DrawGameOver(HDC &memDC, RECT windowRect) {
+    int width = windowRect.right - windowRect.left;
+    int height = windowRect.bottom - windowRect.top;
+
+    int menuWidth = width / 4;
+    int menuHeight = height / 4;
+    int menuX = (width - menuWidth) / 2;
+    int menuY = (height - menuHeight) / 8;
+
+    Gdiplus::Graphics graphics(memDC);
+    Gdiplus::Rect destRect(menuX, menuY , menuWidth, menuHeight);
+    Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\gameover.png");
     graphics.DrawImage(&image, destRect);
 }
 
