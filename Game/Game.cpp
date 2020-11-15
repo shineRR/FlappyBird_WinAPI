@@ -7,6 +7,8 @@
 void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
     switch(wParam) {
         case VK_SHIFT: {
+            if (gameState.GetState() == SCORE)
+                ResetView(windowRect);
             scene.isActive = !scene.isActive;
             gameState.ChangeToGameLevel();
             break;
@@ -21,14 +23,18 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
         }
         case VK_ESCAPE: {
             scene.isActive = false;
-            scene.ResetCounter();
+            ResetView(windowRect);
             gameState.ChangeToIntro();
-            bird.UpdateXY(windowRect);
-            Pipe::InitializePipes(scene.pipe.pipes, true);
-            scene.pipe.updatePipesPosition(windowRect, scene.pipe.pipes, DEFAULT_WINDOW_WIDTH, true);
             break;
         }
     }
+}
+
+void Game::ResetView(RECT windowRect) {
+    scene.ResetCounter();
+    bird.UpdateXY(windowRect);
+    Pipe::InitializePipes(scene.pipe.pipes, true);
+    scene.pipe.updatePipesPosition(windowRect, scene.pipe.pipes, DEFAULT_WINDOW_WIDTH, true);
 }
 
 void Game::MoveBird(RECT windowRect, double multiplierDirection) {
@@ -51,4 +57,5 @@ int Game::GetCoins() {
 void Game::Quit() {
 
 }
+
 

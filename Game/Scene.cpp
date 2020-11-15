@@ -30,7 +30,7 @@ void Scene::Render(HWND hWnd) {
     HDC hdc = BeginPaint(hWnd, &ps);
     HDC memDC = CreateCompatibleDC(hdc);
     HBITMAP hBM = CreateCompatibleBitmap(hdc, width, height);
-    HBITMAP  oldbmp = (HBITMAP)SelectObject(memDC, hBM);
+    auto  oldbmp = (HBITMAP)SelectObject(memDC, hBM);
 
     Gdiplus::Graphics graphics(memDC);
     switch (state->GetState()) {
@@ -61,7 +61,6 @@ void Scene::Render(HWND hWnd) {
             Gdiplus::RectF rectF(15.0f, 10.0f, 100.0f, 100.0f);
             pipe.DrawTextZ(graphics, text, rectF);
             DrawScore(memDC, windowRect);
-
             break;
         }
     }
@@ -101,16 +100,38 @@ void Scene::DrawFloor(HDC &memDC, RECT windowRect) {
 
 void Scene::DrawScore(HDC &memDC, RECT windowRect) {
     int score = pipe.GetTraveledDistance();
+    double width = windowRect.right - windowRect.left;
+    double height = windowRect.bottom - windowRect.top;
+    double coefX = width / DEFAULT_WINDOW_WIDTH;
+    double coefY = height / DEFAULT_WINDOW_HEIGHT;
+
+    int scoreWidth = int(width / 24 * coefX);
+    int scoreHeight = int(height / 16 * coefY);
+    int scoreX = int((width - scoreWidth) / 2);
+    int scoreY = int((height - scoreHeight) / 2);
+
+    Gdiplus::Graphics graphics(memDC);
+    std::string assets = GetAssetsDir();
+
     std::vector<int> vector;
-    while (score != 0) {
+    do {
         int part = score % 10;
         score /= 10;
         vector.push_back(part);
+    } while (score != 0);
+
+    for (int i = vector.size(); i > 0; i--) {
+        Gdiplus::Rect destRect(scoreX, scoreY, scoreWidth, scoreHeight);
+        std::string imageName(assets);
+        imageName += std::to_string(vector[i - 1]) + ".png";
+        std::wstring wide_string = std::wstring(imageName.begin(), imageName.end());
+        const wchar_t* result = wide_string.c_str();
+        WCHAR wchar[255];
+        wcscpy(wchar, result);
+        Gdiplus::Image image(wchar);
+        graphics.DrawImage(&image, destRect);
+        scoreX += int(50 * coefX);
     }
-    for (int i = 0; i < vector.size(); ++i) {
-        std::cout << vector[i] << std::endl;
-    }
-    std::cout << "_____________________" << std::endl;
 }
 
 void Scene::DrawGameOver(HDC &memDC, RECT windowRect) {

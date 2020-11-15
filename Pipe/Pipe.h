@@ -40,13 +40,13 @@ class Pipe {
 
         WCHAR pipeType[255];
         double coefX = 1;
+        double coefY = 1;
         void GenerateNextPipes(RECT windowRect);
         void GetCoefs(RECT rect);
         static int * GenerateHeightForCouplePipes(int windowHeight, int *pipesHeight);
         static bool randCoin();
     public:
         PipeItem pipes[PIPES][COUPLE];
-        double coefY = 1;
         explicit Pipe(const WCHAR* _pipeType, int coins);
         void CollectCoin(POINTL birdPoint, int i);
         bool CollisionCheck(POINTL birdPoint, int i);

@@ -6,7 +6,6 @@
 #define FLAPPYBIRD_WINAPI_SCENE_H
 
 #define GetCurrentDir _getcwd
-#include <string>
 #include <dirent.h>
 #include "windows.h"
 #include "GameState.h"
@@ -29,10 +28,10 @@ private:
         GameState* state;
         Bird* bird;
         static std::string GetAssetsDir();
-        void DrawStartMenu(HDC &memDC, RECT windowRect);
+        static void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);
-        void DrawBackground(HDC &memDC, RECT windowRect);
-        void DrawGameOver(HDC &memDC, RECT windowRect);
+        static void DrawBackground(HDC &memDC, RECT windowRect);
+        static void DrawGameOver(HDC &memDC, RECT windowRect);
         void DrawScore(HDC &memDC, RECT windowRect);
 };
 

@@ -13,6 +13,7 @@ class Game {
     private:
         const int downModifier = 1;
         const int upModifier = -1;
+        void ResetView(RECT windowRect);
     public:
         Game() = default;
         GameState gameState = GameState(INTRO);
