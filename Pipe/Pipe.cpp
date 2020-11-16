@@ -95,25 +95,14 @@ void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins) {
     std::string text("Coins: ");
     Gdiplus::RectF  rectF(15.0f, 10.0f, 100.0f, 100.0f);
     text += std::to_string(_coins);
-    DrawTextZ(graphics, text, rectF);
+    Helper::DrawTextZ(graphics, text, rectF);
 }
 
 void Pipe::DrawTraveledDistance(Gdiplus::Graphics &graphics) {
     std::string text("Traveled Distance: ");
     Gdiplus::RectF  rectF(15.0f, 40.0f, 300.0f, 100.0f);
     text += std::to_string(traveledDistance);
-    DrawTextZ(graphics, text, rectF);
-}
-
-void Pipe::DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::RectF rectF) {
-    std::wstring wide_string = std::wstring(text.begin(), text.end());
-    const wchar_t* result = wide_string.c_str();
-    WCHAR wchar[255];
-    wcscpy(wchar, result);
-    Gdiplus::FontFamily   fontFamily(L"Arial");
-    Gdiplus::Font         font(&fontFamily, 12, Gdiplus::FontStyleBold, Gdiplus::UnitPoint);
-    Gdiplus::SolidBrush   solidBrush(Gdiplus::Color(255, 255, 255, 255));
-    graphics.DrawString(wchar, -1, &font, rectF, NULL, &solidBrush);
+    Helper::DrawTextZ(graphics, text, rectF);
 }
 
 bool Pipe::CollisionCheck(POINTL birdPoint, int i) {

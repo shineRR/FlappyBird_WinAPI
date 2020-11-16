@@ -12,6 +12,7 @@
 #include <cwchar>
 #include <cstring>
 #include <cstdlib>
+#include "../Helper/Helper.h"
 
 #define DEFAULT_WINDOW_WIDTH 1280
 #define DEFAULT_WINDOW_HEIGHT 720
@@ -54,7 +55,6 @@ class Pipe {
         void DrawCoin(Gdiplus::Graphics &graphics, int i);
         void DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins);
         void DrawTraveledDistance(Gdiplus::Graphics &graphics);
-        void DrawTextZ(Gdiplus::Graphics &graphics, std::string text, Gdiplus::RectF rectF);
         int GetTraveledDistance() const;
         void IncTraveledDistance(POINTL birdPoint, int i);
         static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin);
