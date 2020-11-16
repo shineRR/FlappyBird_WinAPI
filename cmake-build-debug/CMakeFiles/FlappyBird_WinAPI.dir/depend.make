@@ -8,25 +8,40 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Bird/Bird.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Game.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Game.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/GameState.h
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Scene.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Scene/Scene.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Shop/Shop.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Helper/Helper.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Pipe/Pipe.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj: ../Game/GameState.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj: ../Game/GameState.h
 
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Bird/Bird.h
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/GameState.h
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.cpp
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.h
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Pipe/Pipe.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Bird/Bird.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Game/GameState.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Game/Scene/Scene.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Game/Scene/Scene.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Game/Shop/Shop.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Helper/Helper.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Pipe/Pipe.h
 
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Bird/Bird.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Game/Shop/Shop.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Game/Shop/Shop.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Helper/Helper.h
+
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: ../Helper/Helper.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: ../Helper/Helper.h
+
+CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj: ../Helper/Helper.h
 CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj: ../Pipe/Pipe.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj: ../Pipe/Pipe.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Bird/Bird.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Game.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/GameState.h
-CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Scene.h
+CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Scene/Scene.h
+CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Game/Shop/Shop.h
+CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Helper/Helper.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../Pipe/Pipe.h
 CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj: ../main.cpp
 

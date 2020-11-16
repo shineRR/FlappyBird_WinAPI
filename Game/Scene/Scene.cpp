@@ -5,7 +5,6 @@
 #include <vector>
 #include "Scene.h"
 #include "gdiplus.h"
-#include "GameState.h"
 
 Scene::Scene() {}
 
@@ -15,7 +14,7 @@ Scene::Scene(GameState* _state, Bird* _bird) {
 }
 
 void Scene::Render(HWND hWnd) {
-    std::string assetDir = GetAssetsDir();
+    std::string assetDir = Helper::GetAssetsDir();
     RECT windowRect;
     if(!GetClientRect(hWnd, &windowRect))
         GetLastError();
@@ -59,8 +58,15 @@ void Scene::Render(HWND hWnd) {
             std::string text("Traveled Distance: ");
             text += std::to_string(pipe.GetTraveledDistance());
             Gdiplus::RectF rectF(15.0f, 10.0f, 100.0f, 100.0f);
-            pipe.DrawTextZ(graphics, text, rectF);
+            Helper::DrawTextZ(graphics, text, rectF);
             DrawScore(memDC, windowRect);
+            break;
+        }
+        case SHOP: {
+            DrawBackground(memDC, windowRect);
+            DrawFloor(memDC, windowRect);
+            pipe.DrawCollectedCoins(graphics, coins);
+            shop.DrawShop(memDC, windowRect);
             break;
         }
     }
@@ -111,7 +117,7 @@ void Scene::DrawScore(HDC &memDC, RECT windowRect) {
     int scoreY = int((height - scoreHeight) / 2);
 
     Gdiplus::Graphics graphics(memDC);
-    std::string assets = GetAssetsDir();
+    std::string assets = Helper::GetAssetsDir();
 
     std::vector<int> vector;
     do {
@@ -159,15 +165,6 @@ void Scene::DrawBackground(HDC &memDC, RECT windowRect) {
     Gdiplus::Rect destRect(0, 0, width, height);
     Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
     graphics.DrawImage(&image, destRect);
-}
-
-std::string Scene::GetAssetsDir() {
-    char buff[FILENAME_MAX]; //create string buffer to hold path
-    GetCurrentDir(buff, FILENAME_MAX );
-    std::string currDir(buff);
-    std::size_t pos = currDir.find_last_of('\\');      // position of "live" in str
-    std::string assetDir = currDir.substr(0, pos).append("\\Assets\\");     // get from "live" to the end
-    return assetDir;
 }
 
 void Scene::MovePipe(RECT windowRect) {

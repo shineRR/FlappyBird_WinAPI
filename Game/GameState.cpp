@@ -25,4 +25,8 @@ void GameState::ChangeToIntro() {
     state = INTRO;
 }
 
+void GameState::ChangeToShop() {
+    state = SHOP;
+}
+
 GameState::GameState() = default;

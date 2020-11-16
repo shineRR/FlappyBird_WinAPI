@@ -5,12 +5,12 @@
 #ifndef FLAPPYBIRD_WINAPI_SCENE_H
 #define FLAPPYBIRD_WINAPI_SCENE_H
 
-#define GetCurrentDir _getcwd
 #include <dirent.h>
 #include "windows.h"
-#include "GameState.h"
-#include "../Bird/Bird.h"
-#include "../Pipe/Pipe.h"
+#include "../GameState.h"
+#include "../../Bird/Bird.h"
+#include "../../Pipe/Pipe.h"
+#include "../Shop/Shop.h"
 #include <iostream>
 
 class Scene {
@@ -27,11 +27,11 @@ class Scene {
 private:
         GameState* state;
         Bird* bird;
-        static std::string GetAssetsDir();
-        static void DrawStartMenu(HDC &memDC, RECT windowRect);
+        Shop shop = Shop();
+        void DrawStartMenu(HDC &memDC, RECT windowRect);
         void DrawFloor(HDC &memDC, RECT windowRect);
-        static void DrawBackground(HDC &memDC, RECT windowRect);
-        static void DrawGameOver(HDC &memDC, RECT windowRect);
+        void DrawBackground(HDC &memDC, RECT windowRect);
+        void DrawGameOver(HDC &memDC, RECT windowRect);
         void DrawScore(HDC &memDC, RECT windowRect);
 };
 

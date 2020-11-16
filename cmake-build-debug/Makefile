@@ -223,32 +223,86 @@ Game/GameState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.s
 .PHONY : Game/GameState.cpp.s
 
-Game/Scene.obj: Game/Scene.cpp.obj
+Game/Scene/Scene.obj: Game/Scene/Scene.cpp.obj
 
-.PHONY : Game/Scene.obj
+.PHONY : Game/Scene/Scene.obj
 
 # target to build an object file
-Game/Scene.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj
-.PHONY : Game/Scene.cpp.obj
+Game/Scene/Scene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj
+.PHONY : Game/Scene/Scene.cpp.obj
 
-Game/Scene.i: Game/Scene.cpp.i
+Game/Scene/Scene.i: Game/Scene/Scene.cpp.i
 
-.PHONY : Game/Scene.i
+.PHONY : Game/Scene/Scene.i
 
 # target to preprocess a source file
-Game/Scene.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.i
-.PHONY : Game/Scene.cpp.i
+Game/Scene/Scene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.i
+.PHONY : Game/Scene/Scene.cpp.i
 
-Game/Scene.s: Game/Scene.cpp.s
+Game/Scene/Scene.s: Game/Scene/Scene.cpp.s
 
-.PHONY : Game/Scene.s
+.PHONY : Game/Scene/Scene.s
 
 # target to generate assembly for a file
-Game/Scene.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.s
-.PHONY : Game/Scene.cpp.s
+Game/Scene/Scene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.s
+.PHONY : Game/Scene/Scene.cpp.s
+
+Game/Shop/Shop.obj: Game/Shop/Shop.cpp.obj
+
+.PHONY : Game/Shop/Shop.obj
+
+# target to build an object file
+Game/Shop/Shop.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj
+.PHONY : Game/Shop/Shop.cpp.obj
+
+Game/Shop/Shop.i: Game/Shop/Shop.cpp.i
+
+.PHONY : Game/Shop/Shop.i
+
+# target to preprocess a source file
+Game/Shop/Shop.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.i
+.PHONY : Game/Shop/Shop.cpp.i
+
+Game/Shop/Shop.s: Game/Shop/Shop.cpp.s
+
+.PHONY : Game/Shop/Shop.s
+
+# target to generate assembly for a file
+Game/Shop/Shop.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.s
+.PHONY : Game/Shop/Shop.cpp.s
+
+Helper/Helper.obj: Helper/Helper.cpp.obj
+
+.PHONY : Helper/Helper.obj
+
+# target to build an object file
+Helper/Helper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj
+.PHONY : Helper/Helper.cpp.obj
+
+Helper/Helper.i: Helper/Helper.cpp.i
+
+.PHONY : Helper/Helper.i
+
+# target to preprocess a source file
+Helper/Helper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.i
+.PHONY : Helper/Helper.cpp.i
+
+Helper/Helper.s: Helper/Helper.cpp.s
+
+.PHONY : Helper/Helper.s
+
+# target to generate assembly for a file
+Helper/Helper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.s
+.PHONY : Helper/Helper.cpp.s
 
 Pipe/Pipe.obj: Pipe/Pipe.cpp.obj
 
@@ -322,9 +376,15 @@ help:
 	@echo ... Game/GameState.obj
 	@echo ... Game/GameState.i
 	@echo ... Game/GameState.s
-	@echo ... Game/Scene.obj
-	@echo ... Game/Scene.i
-	@echo ... Game/Scene.s
+	@echo ... Game/Scene/Scene.obj
+	@echo ... Game/Scene/Scene.i
+	@echo ... Game/Scene/Scene.s
+	@echo ... Game/Shop/Shop.obj
+	@echo ... Game/Shop/Shop.i
+	@echo ... Game/Shop/Shop.s
+	@echo ... Helper/Helper.obj
+	@echo ... Helper/Helper.i
+	@echo ... Helper/Helper.s
 	@echo ... Pipe/Pipe.obj
 	@echo ... Pipe/Pipe.i
 	@echo ... Pipe/Pipe.s

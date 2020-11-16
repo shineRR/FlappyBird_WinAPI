@@ -9,6 +9,7 @@ enum States {
     INTRO = 0,
     GAMELEVEL,
     SCORE,
+    SHOP,
 };
 
 class GameState {
@@ -21,6 +22,7 @@ class GameState {
         void ChangeToIntro();
         void ChangeToGameLevel();
         void ChangeToScore();
+        void ChangeToShop();
 };
 
 

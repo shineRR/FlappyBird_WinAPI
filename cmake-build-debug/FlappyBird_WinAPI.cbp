@@ -103,10 +103,22 @@
 		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h">
 			<Option target="FlappyBird_WinAPI"/>
 		</Unit>
-		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.cpp">
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/Scene.cpp">
 			<Option target="FlappyBird_WinAPI"/>
 		</Unit>
-		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene.h">
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/Scene.h">
+			<Option target="FlappyBird_WinAPI"/>
+		</Unit>
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Shop/Shop.cpp">
+			<Option target="FlappyBird_WinAPI"/>
+		</Unit>
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Shop/Shop.h">
+			<Option target="FlappyBird_WinAPI"/>
+		</Unit>
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Helper/Helper.cpp">
+			<Option target="FlappyBird_WinAPI"/>
+		</Unit>
+		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Helper/Helper.h">
 			<Option target="FlappyBird_WinAPI"/>
 		</Unit>
 		<Unit filename="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.cpp">

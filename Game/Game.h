@@ -6,7 +6,7 @@
 #define FLAPPYBIRD_WINAPI_GAME_H
 
 #include "algorithm"
-#include "Scene.h"
+#include "Scene/Scene.h"
 #include "GameState.h"
 
 class Game {

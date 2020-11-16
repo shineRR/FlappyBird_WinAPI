@@ -21,6 +21,10 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             MoveBird(windowRect, downModifier);
             break;
         }
+        case VK_F1: {
+            gameState.ChangeToShop();
+            break;
+        }
         case VK_ESCAPE: {
             scene.isActive = false;
             ResetView(windowRect);

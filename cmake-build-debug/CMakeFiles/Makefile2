@@ -93,12 +93,12 @@ clean: CMakeFiles/FlappyBird_WinAPI.dir/clean
 CMakeFiles/FlappyBird_WinAPI.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FlappyBird_WinAPI.dir\build.make CMakeFiles/FlappyBird_WinAPI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target FlappyBird_WinAPI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target FlappyBird_WinAPI"
 .PHONY : CMakeFiles/FlappyBird_WinAPI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FlappyBird_WinAPI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/FlappyBird_WinAPI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/FlappyBird_WinAPI.dir/rule

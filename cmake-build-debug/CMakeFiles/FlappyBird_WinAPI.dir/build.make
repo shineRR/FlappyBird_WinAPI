@@ -102,18 +102,18 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Game.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Game.cpp.s
 
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: CMakeFiles/FlappyBird_WinAPI.dir/flags.make
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj: ../Game/Scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene.cpp.obj -c C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene.cpp
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: CMakeFiles/FlappyBird_WinAPI.dir/flags.make
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj: ../Game/Scene/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene\Scene.cpp.obj -c C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene\Scene.cpp
 
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene.cpp > CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene.cpp.i
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene\Scene.cpp > CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene\Scene.cpp.i
 
-CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene.cpp.s
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Scene\Scene.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Scene\Scene.cpp.s
 
 CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: CMakeFiles/FlappyBird_WinAPI.dir/flags.make
 CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: ../Bird/Bird.cpp
@@ -154,29 +154,59 @@ CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Pipe\Pipe.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Pipe\Pipe.cpp.s
 
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: CMakeFiles/FlappyBird_WinAPI.dir/flags.make
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Game/Shop/Shop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Shop\Shop.cpp.obj -c C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Shop\Shop.cpp
+
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Shop\Shop.cpp > CMakeFiles\FlappyBird_WinAPI.dir\Game\Shop\Shop.cpp.i
+
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Game\Shop\Shop.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Game\Shop\Shop.cpp.s
+
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: CMakeFiles/FlappyBird_WinAPI.dir/flags.make
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: ../Helper/Helper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FlappyBird_WinAPI.dir\Helper\Helper.cpp.obj -c C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Helper\Helper.cpp
+
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Helper\Helper.cpp > CMakeFiles\FlappyBird_WinAPI.dir\Helper\Helper.cpp.i
+
+CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\Helper\Helper.cpp -o CMakeFiles\FlappyBird_WinAPI.dir\Helper\Helper.cpp.s
+
 # Object files for target FlappyBird_WinAPI
 FlappyBird_WinAPI_OBJECTS = \
 "CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj" \
 "CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj" \
-"CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj" \
+"CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj" \
 "CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj" \
 "CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj" \
-"CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj"
+"CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj" \
+"CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj" \
+"CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj"
 
 # External object files for target FlappyBird_WinAPI
 FlappyBird_WinAPI_EXTERNAL_OBJECTS =
 
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/main.cpp.obj
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj
-FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene.cpp.obj
+FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Game/Scene/Scene.cpp.obj
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Game/GameState.cpp.obj
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Pipe/Pipe.cpp.obj
+FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj
+FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/build.make
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/linklibs.rsp
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/objects1.rsp
 FlappyBird_WinAPI.exe: CMakeFiles/FlappyBird_WinAPI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable FlappyBird_WinAPI.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\shine\Desktop\Dev\FlappyBird_WinAPI\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable FlappyBird_WinAPI.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FlappyBird_WinAPI.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
