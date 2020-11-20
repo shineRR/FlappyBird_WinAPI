@@ -5,9 +5,10 @@
 #include "Game.h"
 
 void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
+    States state = gameState.GetState();
     switch(wParam) {
         case VK_SHIFT: {
-            if (gameState.GetState() == SCORE)
+            if (state == SCORE || state == SHOP)
                 ResetView(windowRect);
             scene.isActive = !scene.isActive;
             gameState.ChangeToGameLevel();
@@ -22,6 +23,7 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             break;
         }
         case VK_F1: {
+            if (state == GAMELEVEL) return;
             gameState.ChangeToShop();
             break;
         }
@@ -32,6 +34,8 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             break;
         }
     }
+    if (state == SHOP)
+        scene.KeyAnalyse(hWnd, wParam, windowRect);
 }
 
 void Game::ResetView(RECT windowRect) {

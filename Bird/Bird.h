@@ -17,6 +17,7 @@ class Bird {
     private:
         const int birdWidth = 25;
         const int birdHeight = 25;
+        WCHAR bird[255];
         double coefX = 1;
         double coefY = 1;
         int x = 0;
@@ -24,7 +25,6 @@ class Bird {
         int offsetX = 0;
         int offsetY = 0;
         int moveDistance = 10;
-        WCHAR bird[255];
         void ValidatePosition(RECT windowRect, double multiplierDirection);
     public:
         explicit Bird(const WCHAR* _bird);
@@ -34,6 +34,7 @@ class Bird {
         void GetCoefs(RECT rect);
         void UpdateBirdPosition(RECT windowRect);
         void UpdateXY(RECT windowRect);
+        void SetNewBird(const WCHAR* name);
         POINTL GetPos();
 };
 

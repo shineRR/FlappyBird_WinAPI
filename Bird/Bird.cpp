@@ -70,3 +70,7 @@ void Bird::UpdateBirdPosition(RECT windowRect) {
     x += offsetX;           // New value
     y += offsetY;
 }
+
+void Bird::SetNewBird(const WCHAR* name) {
+    wcscpy(bird, name);
+}

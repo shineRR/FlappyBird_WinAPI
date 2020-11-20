@@ -21,20 +21,35 @@ void Shop::DrawShop(HDC &memDC, RECT windowRect) {
         Gdiplus::Rect destRect(shopX, shopY, shopWidth, shopHeight);
         WCHAR * imageName = new WCHAR[255];
         wcscpy(imageName, Helper::GetWCHAR(assets));
-        wcscat(imageName, birdProperties[i].name);
+        wcscat(imageName, itemProperties[i].name);
         Gdiplus::Image image(imageName);
         graphics.DrawImage(&image, destRect);
         Gdiplus::RectF rectF(shopX + 10, shopY + shopHeight + 20, 100 * coefX, 50 * coefY);
-        std::string text(std::to_string(birdProperties[i].price));
+        std::string text(std::to_string(itemProperties[i].price));
         text += " GRIVNI";
         Helper::DrawTextZ(graphics, text, rectF);
         shopX += int(150 * coefX);
     }
-    Gdiplus::RectF rectF((windowRect.right - 100) * coefX, 10.0f, 150 * coefX, 60 * coefY);
+    Gdiplus::RectF rectF(windowRect.right - 120 * coefX, 10.0f, 120 * coefX, 60 * coefY);
     std::string text("Esc to Menu");
     Helper::DrawTextZ(graphics, text, rectF);
 }
 
-Shop::Shop() {
+Shop::Shop(Bird * _bird) {
+    bird = _bird;
+}
 
+int Shop::BuyItem(int i, int coins) {
+    if (i < 1 || i > sizeof(itemProperties)) return 0;
+    std::string assets = Helper::GetAssetsDir();
+    ItemProperties item = itemProperties[i - 1];
+    if (coins >= item.price)
+    {
+        WCHAR * wchar = new WCHAR[255];
+        wcscpy(wchar, Helper::GetWCHAR(assets));
+        wcscat(wchar, item.name);
+        bird->SetNewBird(wchar);
+        return item.price;
+    }
+    return 0;
 }

@@ -11,6 +11,7 @@ Scene::Scene() {}
 Scene::Scene(GameState* _state, Bird* _bird) {
     state = _state;
     bird = _bird;
+    shop = Shop(_bird);
 }
 
 void Scene::Render(HWND hWnd) {
@@ -48,23 +49,21 @@ void Scene::Render(HWND hWnd) {
                 isActive = false;
             }
             bird->DrawBird(memDC);
-//        DrawStartMenu(memDC, windowRect);
             break;
         }
         case SCORE: {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
             DrawGameOver(memDC, windowRect);
-            std::string text("Traveled Distance: ");
-            text += std::to_string(pipe.GetTraveledDistance());
-            Gdiplus::RectF rectF(15.0f, 10.0f, 100.0f, 100.0f);
-            Helper::DrawTextZ(graphics, text, rectF);
+            pipe.DrawCollectedCoins(graphics, coins);
+            pipe.DrawTraveledDistance(graphics);
             DrawScore(memDC, windowRect);
             break;
         }
         case SHOP: {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
+            std::cout << coins << std::endl;
             pipe.DrawCollectedCoins(graphics, coins);
             shop.DrawShop(memDC, windowRect);
             break;
@@ -151,6 +150,8 @@ void Scene::DrawGameOver(HDC &memDC, RECT windowRect) {
 
     Gdiplus::Graphics graphics(memDC);
     Gdiplus::Rect destRect(menuX, menuY , menuWidth, menuHeight);
+    WCHAR * imageName = new WCHAR[255];
+    wcscpy(imageName, L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\gameover.png");
     Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\gameover.png");
     graphics.DrawImage(&image, destRect);
 }
@@ -160,10 +161,18 @@ void Scene::DrawBackground(HDC &memDC, RECT windowRect) {
 
     int width = windowRect.right - windowRect.left;
     int height = windowRect.bottom - windowRect.top;
-
-    Gdiplus::Graphics graphics(memDC);
     Gdiplus::Rect destRect(0, 0, width, height);
+    Gdiplus::Graphics graphics(memDC);
     Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
+    graphics.DrawImage(&image, destRect);
+    //    WCHAR * imageName = new WCHAR[255];
+//    wcscpy(imageName, L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
+//    Draw(destRect, memDC, imageName);
+}
+
+void Scene::Draw(Gdiplus::Rect destRect, HDC &memDC, WCHAR * imageName) {
+    Gdiplus::Graphics graphics(memDC);
+    Gdiplus::Image image(imageName);
     graphics.DrawImage(&image, destRect);
 }
 
@@ -181,4 +190,22 @@ void Scene::UpdateObjectPositions(RECT windowRect) {
 int Scene::ResetCounter() {
     coins = pipe.ResetCounter();
     pipe.StopCounting();
+}
+
+void Scene::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
+    // 0x30 - 0 ... 0x39 - 9
+    switch (wParam) {
+        case 0x31: {
+            coins -= shop.BuyItem(1, coins);
+            break;
+        }
+        case 0x32: {
+            coins -= shop.BuyItem(2, coins);
+            break;
+        }
+        case 0x33: {
+            coins -= shop.BuyItem(3, coins);
+            break;
+        }
+    }
 }

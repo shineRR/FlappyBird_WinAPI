@@ -94,7 +94,7 @@ bool Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
 void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins) {
     std::string text("Coins: ");
     Gdiplus::RectF  rectF(15.0f, 10.0f, 100.0f, 100.0f);
-    text += std::to_string(_coins);
+    text += std::to_string(coins);
     Helper::DrawTextZ(graphics, text, rectF);
 }
 
@@ -110,7 +110,7 @@ bool Pipe::CollisionCheck(POINTL birdPoint, int i) {
     int upperHeight = pipes[i][0].height;
     const int distanceBetweenPipesY = int(120 * coefY);
     int lowerHeight = upperHeight + distanceBetweenPipesY;
-    if(birdPoint.x >= pipeX && (birdPoint.y <= upperHeight || birdPoint.y >= lowerHeight))
+    if(birdPoint.x >= pipeX && (birdPoint.y <= upperHeight || birdPoint.y >= lowerHeight - 25 * coefY))
         return true;
     return false;
 }

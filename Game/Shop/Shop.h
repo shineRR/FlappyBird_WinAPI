@@ -11,13 +11,15 @@
 class Shop {
     private:
         Bird* bird;
-        BirdProperties birdProperties[3] = {{L"redbird-midflap.png", 2},
+        ItemProperties itemProperties[3] = {{L"redbird-midflap.png",    2},
                                             {L"yellowbird-midflap.png", 5},
-                                            {L"bluebird-midflap.png", 10}};
+                                            {L"bluebird-midflap.png",   10}};
         int price[3] = {1, 1, 1};
     public:
-        Shop();
+        Shop(Bird * _bird);
+        Shop() = default;
         void DrawShop(HDC &memDC, RECT windowRect);
+        int BuyItem(int i, int coins);
 };
 
 

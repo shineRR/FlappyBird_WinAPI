@@ -11,7 +11,7 @@
 #include "windows.h"
 #include <dirent.h>
 
-struct BirdProperties {
+struct ItemProperties {
     WCHAR name[255];
     int price;
 };
