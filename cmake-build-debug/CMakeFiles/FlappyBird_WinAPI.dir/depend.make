@@ -28,6 +28,7 @@ CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Bird/Bird.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Game/Shop/Shop.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Game/Shop/Shop.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Helper/Helper.h
+CMakeFiles/FlappyBird_WinAPI.dir/Game/Shop/Shop.cpp.obj: ../Pipe/Pipe.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: ../Helper/Helper.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Helper/Helper.cpp.obj: ../Helper/Helper.h

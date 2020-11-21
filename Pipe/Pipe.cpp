@@ -248,3 +248,7 @@ void Pipe::StopCounting() {
 int Pipe::GetTraveledDistance() const {
     return traveledDistance;
 }
+
+void Pipe::SetNewPipe(WCHAR* name) {
+    wcscpy(pipeType, name);
+}

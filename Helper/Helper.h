@@ -12,6 +12,7 @@
 #include <dirent.h>
 
 struct ItemProperties {
+    int id;                 //  0 - bird, 1 - pipe
     WCHAR name[255];
     int price;
 };

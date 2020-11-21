@@ -61,6 +61,7 @@ class Pipe {
         void Movement();
         void PrintPipes();
         int ResetCounter() const;
+        void SetNewPipe(WCHAR* name);
         void StopCounting();
         void ValidateMap(RECT windowRect);
         void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);

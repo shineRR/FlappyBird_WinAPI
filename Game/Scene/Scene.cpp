@@ -11,7 +11,7 @@ Scene::Scene() {}
 Scene::Scene(GameState* _state, Bird* _bird) {
     state = _state;
     bird = _bird;
-    shop = Shop(_bird);
+    shop = Shop(_bird, &pipe);
 }
 
 void Scene::Render(HWND hWnd) {
@@ -207,5 +207,30 @@ void Scene::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             coins -= shop.BuyItem(3, coins);
             break;
         }
+        case 0x34: {
+            coins -= shop.BuyItem(4, coins);
+            break;
+        }
+        case 0x35: {
+            coins -= shop.BuyItem(5, coins);
+            break;
+        }
+        case 0x36: {
+            coins -= shop.BuyItem(6, coins);
+            break;
+        }
+        case 0x37: {
+            coins -= shop.BuyItem(7, coins);
+            break;
+        }
+        case 0x38: {
+            coins -= shop.BuyItem(8, coins);
+            break;
+        }
+        case 0x39: {
+            coins -= shop.BuyItem(9, coins);
+            break;
+        }
+
     }
 }
