@@ -28,7 +28,7 @@ void Shop::DrawShop(HDC &memDC, RECT windowRect) {
 
         std::string text(std::to_string(i + 1));
         text += ". " + (std::to_string(itemProperties[i].price));
-        text += " GRIVNI";
+        text += " USD";
         Helper::DrawTextZ(graphics, text, rectF);
         shopX += int(150 * coefX);
     }

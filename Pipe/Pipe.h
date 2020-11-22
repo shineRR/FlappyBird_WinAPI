@@ -36,7 +36,7 @@ class Pipe {
     private:
         const int pipeWidth = 80;
         PipeItem nextPipes[PIPES][COUPLE];
-        int _coins;
+        int _coins = 0;
         int traveledDistance = 0;
 
         WCHAR pipeType[255];
@@ -48,19 +48,20 @@ class Pipe {
         static bool randCoin();
     public:
         PipeItem pipes[PIPES][COUPLE];
-        explicit Pipe(const WCHAR* _pipeType, int coins);
+        explicit Pipe(const WCHAR* _pipeType);
         void CollectCoin(POINTL birdPoint, int i);
         bool CollisionCheck(POINTL birdPoint, int i);
         bool DrawPipes(HDC &memDC, POINTL birdPoint);
         void DrawCoin(Gdiplus::Graphics &graphics, int i);
-        void DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins);
-        void DrawTraveledDistance(Gdiplus::Graphics &graphics);
+        static void DrawCollectedCoins(Gdiplus::Graphics &graphics, std::string string, int coins);
+        void DrawTraveledDistance(Gdiplus::Graphics &graphics) const;
         int GetTraveledDistance() const;
         void IncTraveledDistance(POINTL birdPoint, int i);
         static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin);
         void Movement();
         void PrintPipes();
-        int ResetCounter() const;
+        int ResetCounter();
+        void SetCoins(int coins);
         void SetNewPipe(WCHAR* name);
         void StopCounting();
         void ValidateMap(RECT windowRect);

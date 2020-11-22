@@ -11,7 +11,9 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             if (state == SCORE || state == SHOP)
                 ResetView(windowRect);
             scene.isActive = !scene.isActive;
-            gameState.ChangeToGameLevel();
+            if (state != GAMELEVEL) {
+                gameState.ChangeToGameLevel();
+            }
             break;
         }
         case VK_UP: {
@@ -31,6 +33,14 @@ void Game::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             scene.isActive = false;
             ResetView(windowRect);
             gameState.ChangeToIntro();
+            break;
+        }
+        case VK_F5: {
+            scene.SetNewBackground(backgrounds[0]);
+            break;
+        }
+        case VK_F6: {
+            scene.SetNewBackground(backgrounds[1]);
             break;
         }
     }

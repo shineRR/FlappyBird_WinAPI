@@ -13,6 +13,8 @@ class Game {
     private:
         const int downModifier = 1;
         const int upModifier = -1;
+        WCHAR backgrounds[2][255] = {L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-day.png",
+                                L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png"};
         void ResetView(RECT windowRect);
     public:
         Game() = default;

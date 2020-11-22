@@ -4,8 +4,9 @@
 
 #include "Pipe.h"
 
-Pipe::Pipe(const WCHAR* _pipeType, int coins) {
-    _coins = coins;
+#include <utility>
+
+Pipe::Pipe(const WCHAR* _pipeType) {
     srand((unsigned int)time(nullptr));
     wcscpy(pipeType, _pipeType);
     InitializePipes(pipes, true);
@@ -86,19 +87,19 @@ bool Pipe::DrawPipes(HDC &memDC, POINTL birdPoint) {
             graphics.DrawImage(&image, destRect);
         }
     }
-    DrawCollectedCoins(graphics, _coins);
+    DrawCollectedCoins(graphics, "Collected Coins: ", _coins);
     DrawTraveledDistance(graphics);
     return collision;
 }
 
-void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, int coins) {
-    std::string text("Coins: ");
-    Gdiplus::RectF  rectF(15.0f, 10.0f, 100.0f, 100.0f);
+void Pipe::DrawCollectedCoins(Gdiplus::Graphics &graphics, std::string string, int coins) {
+    std::string text(std::move(string));
+    Gdiplus::RectF  rectF(15.0f, 10.0f, 200.0f, 100.0f);
     text += std::to_string(coins);
     Helper::DrawTextZ(graphics, text, rectF);
 }
 
-void Pipe::DrawTraveledDistance(Gdiplus::Graphics &graphics) {
+void Pipe::DrawTraveledDistance(Gdiplus::Graphics &graphics) const {
     std::string text("Traveled Distance: ");
     Gdiplus::RectF  rectF(15.0f, 40.0f, 300.0f, 100.0f);
     text += std::to_string(traveledDistance);
@@ -237,8 +238,10 @@ bool Pipe::randCoin() {
     return value % 4 == 0;
 }
 
-int Pipe::ResetCounter() const {
-    return _coins;
+int Pipe::ResetCounter() {
+    int coins = _coins;
+    _coins = 0;
+    return coins;
 }
 
 void Pipe::StopCounting() {
@@ -251,4 +254,8 @@ int Pipe::GetTraveledDistance() const {
 
 void Pipe::SetNewPipe(WCHAR* name) {
     wcscpy(pipeType, name);
+}
+
+void Pipe::SetCoins(int coins) {
+    _coins = coins;
 }

@@ -38,13 +38,14 @@ void Scene::Render(HWND hWnd) {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
             DrawStartMenu(memDC, windowRect);
-            pipe.DrawCollectedCoins(graphics, coins);
+            Pipe::DrawCollectedCoins(graphics,"Total Coins: ", coins);
             break;
         }
         case GAMELEVEL: {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
             if (pipe.DrawPipes(memDC, bird->GetPos())) {
+                coins += pipe.ResetCounter();
                 state->ChangeToScore();
                 isActive = false;
             }
@@ -55,7 +56,7 @@ void Scene::Render(HWND hWnd) {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
             DrawGameOver(memDC, windowRect);
-            pipe.DrawCollectedCoins(graphics, coins);
+            Pipe::DrawCollectedCoins(graphics, "Total Coins: ", coins);
             pipe.DrawTraveledDistance(graphics);
             DrawScore(memDC, windowRect);
             break;
@@ -64,7 +65,7 @@ void Scene::Render(HWND hWnd) {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
             std::cout << coins << std::endl;
-            pipe.DrawCollectedCoins(graphics, coins);
+            Pipe::DrawCollectedCoins(graphics,"Total Coins: ", coins);
             shop.DrawShop(memDC, windowRect);
             break;
         }
@@ -163,7 +164,7 @@ void Scene::DrawBackground(HDC &memDC, RECT windowRect) {
     int height = windowRect.bottom - windowRect.top;
     Gdiplus::Rect destRect(0, 0, width, height);
     Gdiplus::Graphics graphics(memDC);
-    Gdiplus::Image image(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
+    Gdiplus::Image image(backgroundType);
     graphics.DrawImage(&image, destRect);
     //    WCHAR * imageName = new WCHAR[255];
 //    wcscpy(imageName, L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png");
@@ -188,7 +189,7 @@ void Scene::UpdateObjectPositions(RECT windowRect) {
 }
 
 int Scene::ResetCounter() {
-    coins = pipe.ResetCounter();
+    pipe.ResetCounter();
     pipe.StopCounting();
 }
 
@@ -231,6 +232,9 @@ void Scene::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
             coins -= shop.BuyItem(9, coins);
             break;
         }
-
     }
+}
+
+void Scene::SetNewBackground(WCHAR * backgroundName) {
+    wcscpy(backgroundType, backgroundName);
 }
