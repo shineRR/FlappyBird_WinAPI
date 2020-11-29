@@ -38,8 +38,8 @@ class Pipe {
         PipeItem nextPipes[PIPES][COUPLE];
         int _coins = 0;
         int traveledDistance = 0;
-
         WCHAR pipeType[255];
+        int pipeID = 3;
         double coefX = 1;
         double coefY = 1;
         void GenerateNextPipes(RECT windowRect);
@@ -55,6 +55,7 @@ class Pipe {
         void DrawCoin(Gdiplus::Graphics &graphics, int i);
         static void DrawCollectedCoins(Gdiplus::Graphics &graphics, std::string string, int coins);
         void DrawTraveledDistance(Gdiplus::Graphics &graphics) const;
+        int GetPipeID() const ;
         int GetTraveledDistance() const;
         void IncTraveledDistance(POINTL birdPoint, int i);
         static void InitializePipes(PipeItem (&pipeItem)[PIPES][COUPLE], bool genCoin);
@@ -62,7 +63,7 @@ class Pipe {
         void PrintPipes();
         int ResetCounter();
         void SetCoins(int coins);
-        void SetNewPipe(WCHAR* name);
+        void SetNewPipe(WCHAR* name, int id);
         void StopCounting();
         void ValidateMap(RECT windowRect);
         void updatePipesPosition(RECT windowRect, PipeItem (&pipeItem)[PIPES][COUPLE], int initialPx, BOOL generate);

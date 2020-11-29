@@ -29,6 +29,8 @@ void Shop::DrawShop(HDC &memDC, RECT windowRect) {
         std::string text(std::to_string(i + 1));
         text += ". " + (std::to_string(itemProperties[i].price));
         text += " USD";
+        if (bird->GetBirdID() == i || pipe->GetPipeID() == i)
+            text += "(Current)";
         Helper::DrawTextZ(graphics, text, rectF);
         shopX += int(150 * coefX);
     }
@@ -45,13 +47,14 @@ Shop::Shop(Bird * _bird, Pipe * _pipe) {
 int Shop::BuyItem(int i, int coins) {
     if (i < 1 || i > sizeof(itemProperties)) return 0;
     std::string assets = Helper::GetAssetsDir();
+    int id = i - 1;
     ItemProperties item = itemProperties[i - 1];
-    if (coins >= item.price)
+    if (coins >= item.price && bird->GetBirdID() != id && pipe->GetPipeID() != id)
     {
         WCHAR * wchar = new WCHAR[255];
         wcscpy(wchar, Helper::GetWCHAR(assets));
         wcscat(wchar, item.name);
-        item.id == 0 ? bird->SetNewBird(wchar) : pipe->SetNewPipe(wchar);
+        item.id == 0 ? bird->SetNewBird(wchar, id) : pipe->SetNewPipe(wchar, id);
         return item.price;
     }
     return 0;

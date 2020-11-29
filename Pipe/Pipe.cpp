@@ -252,10 +252,15 @@ int Pipe::GetTraveledDistance() const {
     return traveledDistance;
 }
 
-void Pipe::SetNewPipe(WCHAR* name) {
+void Pipe::SetNewPipe(WCHAR* name, int id) {
     wcscpy(pipeType, name);
+    pipeID = id;
 }
 
 void Pipe::SetCoins(int coins) {
     _coins = coins;
+}
+
+int Pipe::GetPipeID() const {
+    return pipeID;
 }

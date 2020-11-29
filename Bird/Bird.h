@@ -18,6 +18,7 @@ class Bird {
         const int birdWidth = 25;
         const int birdHeight = 25;
         WCHAR bird[255];
+        int birdID = 0;
         double coefX = 1;
         double coefY = 1;
         int x = 0;
@@ -31,10 +32,11 @@ class Bird {
         void DrawBird(HDC &memDC);
         void MoveVertical(RECT windowRect, double multiplierDirection);
         void UpdateMoveDistance(double windowWidth, double windowHeight);
+        int GetBirdID() const;
         void GetCoefs(RECT rect);
         void UpdateBirdPosition(RECT windowRect);
         void UpdateXY(RECT windowRect);
-        void SetNewBird(const WCHAR* name);
+        void SetNewBird(const WCHAR* name, int id);
         POINTL GetPos();
 };
 
