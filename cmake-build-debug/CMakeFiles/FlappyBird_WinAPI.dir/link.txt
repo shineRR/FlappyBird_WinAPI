@@ -1,3 +1,3 @@
 "D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\FlappyBird_WinAPI.dir/objects.a
 C:\MinGW\bin\ar.exe cr CMakeFiles\FlappyBird_WinAPI.dir/objects.a @CMakeFiles\FlappyBird_WinAPI.dir\objects1.rsp
-C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\FlappyBird_WinAPI.dir/objects.a -Wl,--no-whole-archive  -o FlappyBird_WinAPI.exe -Wl,--out-implib,libFlappyBird_WinAPI.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FlappyBird_WinAPI.dir\linklibs.rsp
+C:\MinGW\bin\g++.exe -g  -static-libgcc -static-libstdc++ -Wl,--whole-archive CMakeFiles\FlappyBird_WinAPI.dir/objects.a -Wl,--no-whole-archive  -o FlappyBird_WinAPI.exe -Wl,--out-implib,libFlappyBird_WinAPI.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FlappyBird_WinAPI.dir\linklibs.rsp

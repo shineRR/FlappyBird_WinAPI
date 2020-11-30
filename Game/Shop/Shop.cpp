@@ -28,7 +28,7 @@ void Shop::DrawShop(HDC &memDC, RECT windowRect) {
 
         std::string text(std::to_string(i + 1));
         text += ". " + (std::to_string(itemProperties[i].price));
-        text += " USD";
+        text += " Coins";
         if (bird->GetBirdID() == i || pipe->GetPipeID() == i)
             text += "(Current)";
         Helper::DrawTextZ(graphics, text, rectF);
