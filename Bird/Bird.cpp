@@ -3,9 +3,12 @@
 //
 
 #include "Bird.h"
+#include "../Helper/Helper.h"
 
 Bird::Bird(const WCHAR* _bird) {
-    wcscpy(bird, _bird);
+    WCHAR * wchar = Helper::GetWCHAR(Helper::GetAssetsDir());
+    wcscat(wchar, _bird);
+    wcscpy(bird, wchar);
     x = 0;
     y = 0;
 }

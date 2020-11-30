@@ -14,23 +14,10 @@
 #include <iostream>
 
 class Scene {
-    public:
-        Scene(GameState* _state, Bird* _bird);
-        Scene();
-        int coins = 100;
-        BOOL isActive = false;
-        Pipe pipe = Pipe(L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\pipe-red.png");
-        void Render(HWND hWnd);
-        void MovePipe(RECT windowRect);
-        void UpdateObjectPositions(RECT windowRect);
-        int ResetCounter();
-        void KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect);
-        void SetNewBackground(WCHAR * backgroundName);
-
-private:
+    private:
         GameState* state;
         Bird* bird;
-        WCHAR backgroundType[255] = L"C:\\Users\\shine\\Desktop\\Dev\\FlappyBird_WinAPI\\Assets\\background-night.png";
+        WCHAR backgroundType[255] = L"background-night.png";
         int bestScore = 0;
         Shop shop = Shop();
         void DrawStartMenu(HDC &memDC, RECT windowRect);
@@ -39,6 +26,18 @@ private:
         void DrawGameOver(HDC &memDC, RECT windowRect);
         void DrawScore(HDC &memDC, RECT windowRect);
         static void Draw(Gdiplus::Rect destRect, HDC &memDC, WCHAR * image);
+    public:
+        Scene(GameState* _state, Bird* _bird);
+        Scene();
+        int coins = 100;
+        BOOL isActive = false;
+        Pipe pipe = Pipe(L"pipe-red.png");
+        void Render(HWND hWnd);
+        void MovePipe(RECT windowRect);
+        void UpdateObjectPositions(RECT windowRect);
+        int ResetCounter();
+        void KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect);
+        void SetNewBackground(WCHAR * backgroundName);
 };
 
 

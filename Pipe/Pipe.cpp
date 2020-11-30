@@ -4,11 +4,11 @@
 
 #include "Pipe.h"
 
-#include <utility>
-
 Pipe::Pipe(const WCHAR* _pipeType) {
     srand((unsigned int)time(nullptr));
-    wcscpy(pipeType, _pipeType);
+    WCHAR * wcharPipe = Helper::GetWCHAR(Helper::GetAssetsDir());
+    wcscat(wcharPipe, _pipeType);
+    wcscpy(pipeType, wcharPipe);
     InitializePipes(pipes, true);
     InitializePipes(nextPipes, false);
     RECT rect = {0, 0, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT};

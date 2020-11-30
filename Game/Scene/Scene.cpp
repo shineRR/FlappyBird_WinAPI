@@ -11,6 +11,9 @@ Scene::Scene() {}
 Scene::Scene(GameState* _state, Bird* _bird) {
     state = _state;
     bird = _bird;
+    WCHAR * wcharBackground = Helper::GetWCHAR(Helper::GetAssetsDir());
+    wcscat(wcharBackground, backgroundType);
+    wcscpy(backgroundType, wcharBackground);
     shop = Shop(_bird, &pipe);
 }
 
@@ -236,5 +239,7 @@ void Scene::KeyAnalyse(HWND hWnd, WPARAM wParam, RECT windowRect) {
 }
 
 void Scene::SetNewBackground(WCHAR * backgroundName) {
-    wcscpy(backgroundType, backgroundName);
+    WCHAR * wchar = Helper::GetWCHAR(Helper::GetAssetsDir());
+    wcscat(wchar, backgroundName);
+    wcscpy(backgroundType, wchar);
 }

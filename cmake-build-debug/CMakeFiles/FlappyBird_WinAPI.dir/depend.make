@@ -3,6 +3,7 @@
 
 CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: ../Bird/Bird.cpp
 CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: ../Bird/Bird.h
+CMakeFiles/FlappyBird_WinAPI.dir/Bird/Bird.cpp.obj: ../Helper/Helper.h
 
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Bird/Bird.h
 CMakeFiles/FlappyBird_WinAPI.dir/Game/Game.cpp.obj: ../Game/Game.cpp

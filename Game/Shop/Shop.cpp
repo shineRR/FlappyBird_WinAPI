@@ -45,7 +45,7 @@ Shop::Shop(Bird * _bird, Pipe * _pipe) {
 }
 
 int Shop::BuyItem(int i, int coins) {
-    if (i < 1 || i > sizeof(itemProperties)) return 0;
+    if (i < 1 || i > sizeof(itemProperties)/sizeof(itemProperties[0])) return 0;
     std::string assets = Helper::GetAssetsDir();
     int id = i - 1;
     ItemProperties item = itemProperties[i - 1];

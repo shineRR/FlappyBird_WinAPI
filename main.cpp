@@ -1,4 +1,3 @@
-#include <iostream>
 #include "windows.h"
 #include "gdiplus.h"
 #include "Game/Game.h"
@@ -11,7 +10,6 @@ Game game = Game();
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    PAINTSTRUCT ps;
     RECT windowRect;
     GetClientRect(hWnd, &windowRect);
     switch (message) {
