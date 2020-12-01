@@ -16,9 +16,31 @@ gdiplus.h
 cwchar
 -
 
-C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Shop/Shop.cpp
-Shop.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/Scene.cpp
+vector
+-
+Scene.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/Scene.h
+gdiplus.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/gdiplus.h
+
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/Scene.h
+dirent.h
+-
+windows.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Scene/windows.h
+../GameState.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/GameState.h
+../../Bird/Bird.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Bird/Bird.h
+../../Pipe/Pipe.h
+C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Pipe/Pipe.h
+../Shop/Shop.h
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Shop/Shop.h
+iostream
+-
 
 C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/Game/Shop/Shop.h
 ../../Bird/Bird.h

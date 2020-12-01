@@ -67,7 +67,6 @@ void Scene::Render(HWND hWnd) {
         case SHOP: {
             DrawBackground(memDC, windowRect);
             DrawFloor(memDC, windowRect);
-            std::cout << coins << std::endl;
             Pipe::DrawCollectedCoins(graphics,"Total Coins: ", coins);
             shop.DrawShop(memDC, windowRect);
             break;

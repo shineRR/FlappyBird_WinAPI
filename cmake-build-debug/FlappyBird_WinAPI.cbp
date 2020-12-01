@@ -21,7 +21,7 @@
 				<Option output="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/FlappyBird_WinAPI.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="0"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
@@ -43,7 +43,7 @@
 				<Option output="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug/FlappyBird_WinAPI.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/shine/Desktop/Dev/FlappyBird_WinAPI/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="0"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
